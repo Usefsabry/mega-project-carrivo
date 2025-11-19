@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import './login.css';
+import './signup.css';
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import Signup from "./SignUp";
 import carrier from '../../assets/images/carer.jpg';
+import Login from "./Login";
 
-const Login = () => {
+const Signup = () => {
   const [formData, setFormData] = useState({
+    name: '',
     email: '',
     password: '',
     rememberMe: false
@@ -23,7 +24,7 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Login Data:', formData);
+    console.log('Form Data:', formData);
     // هنا هيتحط الـ backend logic
   };
 
@@ -33,9 +34,9 @@ const Login = () => {
   };
 
   return (
-    <div className="login-page">
+    <div className="signup-page">
 
-      {/* Top left curved shape */}
+         {/* Top left curved shape */}
       <div className="bg-shape-top">
         <svg width="445" height="368" viewBox="0 0 445 368" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M196.729 253.995C81.1599 270.761 23.5 342 0 368V0H445C445 155.08 341.191 233.039 196.729 253.995Z" fill="url(#paint0_linear_24_544)"/>
@@ -61,22 +62,34 @@ const Login = () => {
         </svg>
       </div>
       
-      <div className="login-container">
-        <div className="login-illustration">
+      <div className="signup-container">
+        <div className="signup-illustration">
           <img 
             src={carrier} 
             alt="Career Growth Illustration"
           />
         </div>
 
-        <div className="login-form-wrapper">
-          <div className="login-form-content">
-            <h1 className="login-title">
-              Welcome Back To <span className="brand-name">Carrivo!</span>
+        <div className="signup-form-wrapper">
+          <div className="signup-form-content">
+            <h1 className="signup-title">
+              Find Your Path Now With <span className="brand-name">Carrivo</span>
             </h1>
-            <p className="login-subtitle">Let's continue your journey</p>
 
-            <form className="login-form" onSubmit={handleSubmit}>
+            <form className="signup-form" onSubmit={handleSubmit}>
+              <div className="form-group">
+                <label htmlFor="name">Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="username"
+                  required
+                />
+              </div>
+
               <div className="form-group">
                 <label htmlFor="email">Email address</label>
                 <input
@@ -133,11 +146,10 @@ const Login = () => {
                   />
                   <span className="checkbox-text">Remember Me</span>
                 </label>
-                <a href="/forgot-password" className="forgot-password">Forgot Password?</a>
               </div>
 
-              <button type="submit" className="btn-login">
-                Log In
+              <button type="submit" className="btn-signup">
+                Sign Up
               </button>
             </form>
 
@@ -146,13 +158,13 @@ const Login = () => {
             </div>
 
             <div className="social-login">
-              <p className="social-title">Log In With</p>
+              <p className="social-title">Sign Up With</p>
               <div className="social-buttons">
                 <button 
                   type="button"
                   className="social-btn"
                   onClick={() => handleSocialLogin('google')}
-                  aria-label="Log in with Google"
+                  aria-label="Sign up with Google"
                 >
                   <svg width="24" height="24" viewBox="0 0 24 24">
                     <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
@@ -166,7 +178,7 @@ const Login = () => {
                   type="button"
                   className="social-btn"
                   onClick={() => handleSocialLogin('linkedin')}
-                  aria-label="Log in with LinkedIn"
+                  aria-label="Sign up with LinkedIn"
                 >
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="#0077B5">
                     <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
@@ -177,7 +189,7 @@ const Login = () => {
                   type="button"
                   className="social-btn"
                   onClick={() => handleSocialLogin('facebook')}
-                  aria-label="Log in with Facebook"
+                  aria-label="Sign up with Facebook"
                 >
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="#1877F2">
                     <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
@@ -185,17 +197,17 @@ const Login = () => {
                 </button>
               </div>
             </div>
-                    {/* to sign up  */}
 
                     
-           <p className="signup-link">
-          Don't have an account? <Link to="/signup">Sign Up</Link>
-            </p>
-            <Routes>
-          <Route path="/signup" element={<Signup />} />
-        </Routes>
+           <p className="login-link">
+          Have an account? <Link to="/login">Log In</Link>
+        </p>
 
-        
+        <Routes>
+          <Route path="/login" element={<Login />} />
+        </Routes>
+            
+
           </div>
         </div>
       </div>
@@ -203,4 +215,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signup;

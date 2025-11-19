@@ -1,0 +1,537 @@
+/* متغيرات الألوان */
+:root {
+  --primary-color: #00599B;
+  --primary-hover: #004577;
+  --gradient-start: #2D82BB;
+  --gradient-end: #89D0FC;
+  --text-primary: #1a1a1a;
+  --text-secondary: #666;
+  --text-tertiary: #999;
+  --border-color: #e0e0e0;
+  --bg-light: #f5f5f5;
+  --white: #fff;
+  --input-focus: #0077CC;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* صفحة التسجيل */
+.signup-page {
+    min-height: 100vh;
+  background: var(--bg-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 40px;
+}
+
+/* الأشكال الخلفية */
+/* .bg-shape-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-20%, -20%);
+  z-index: 0;
+}
+
+.bg-shape-bottom {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translate(20%, 20%);
+  z-index: 0;
+}
+
+.bg-shape-top svg,
+.bg-shape-bottom svg {
+  width: 450px;
+  height: auto;
+  display: block;
+} */
+
+/**************************************/
+.bg-shape-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-20%, -20%);
+  z-index: 0;
+}
+
+.bg-shape-bottom {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translate(20%, 20%);
+  z-index: 0;
+}
+
+.bg-shape-top svg,
+.bg-shape-bottom svg {
+  width: 450px;
+  height: auto;
+  display: block;
+}
+
+
+
+/* الحاوية الرئيسية */
+/* .signup-container {
+  max-width: 1400px;
+  width: 100%;
+  background: var(--white);
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 89, 155, 0.15);
+  display: grid;
+  gap: 2%;
+  grid-template-columns: 560px 1fr;
+  min-height: 784px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+} */
+.signup-container {
+  max-width: 92%;
+  width: 100%;
+  margin: auto;
+  background: var(--white);
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 89, 155, 0.15);
+  display: grid;
+  grid-template-columns: 50% 1fr;
+  min-height: 784px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  /* padding:5%; */
+  z-index: 1;
+}
+
+/* الرسم التوضيحي */
+.signup-illustration {
+  display: flex;
+  
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.signup-illustration img {
+  width: 110%;
+  margin-left: 10%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* قسم النموذج */
+.signup-form-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px ;
+}
+
+.signup-form-content {
+  width: 100%;
+  max-width: 400px;
+}
+
+/* العنوان */
+.signup-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 40px;
+  line-height: 1.4;
+    white-space: nowrap;
+
+}
+
+.brand-name {
+  color: var(--primary-color);
+  font-weight: 700;
+  display: inline-block;
+}
+
+/* النموذج */
+.signup-form {
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 14px;
+  border: 1.5px solid var(--border-color);
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.form-group input:focus {
+  border-color: var(--input-focus);
+  box-shadow: 0 0 0 3px rgba(0, 119, 204, 0.1);
+}
+
+.form-group input::placeholder {
+  color: #aaa;
+}
+
+/* حقل كلمة المرور */
+.password-input-wrapper {
+  position: relative;
+}
+
+.password-input-wrapper input {
+  padding-right: 45px;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
+.toggle-password:hover {
+  color: var(--text-primary);
+}
+
+/* Remember Me */
+.checkbox-group {
+  margin-bottom: 30px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+  cursor: pointer;
+  accent-color: var(--primary-color);
+}
+
+.checkbox-text {
+  color: var(--text-secondary);
+  user-select: none;
+}
+
+/* زر التسجيل */
+.btn-signup {
+  width: 100%;
+  padding: 16px;
+  background: var(--primary-color);
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.btn-signup:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 89, 155, 0.3);
+}
+
+.btn-signup:active {
+  transform: translateY(0);
+}
+
+/* الفاصل */
+.divider {
+  display: flex;
+  align-items: center;
+  margin: 30px 0;
+  position: relative;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border-color);
+}
+
+.divider span {
+  padding: 0 15px;
+  color: var(--text-tertiary);
+  font-size: 13px;
+}
+
+/* تسجيل الدخول بوسائل التواصل */
+.social-login {
+  text-align: center;
+}
+
+.social-title {
+  font-size: 14px;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.social-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.social-btn {
+  width: 60px;
+  height: 60px;
+  border: 1.5px solid var(--border-color);
+  border-radius: 12px;
+  background: var(--white);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+  border-color: var(--primary-color);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 89, 155, 0.2);
+}
+
+.social-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* رابط تسجيل الدخول */
+.login-link {
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.login-link a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.login-link a:hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+
+/* Tablets - 1024px */
+@media (max-width: 1100px) {
+  .signup-container {
+    max-width: 900px;
+    padding: 30px 40px;
+    grid-template-columns: 50% 1fr;
+    min-height: 700px;
+  }
+ .signup-illustration img {
+  width: 125%;
+}
+  .bg-shape-top {
+    width: 350px;
+    height: 290px;
+  }
+
+  .bg-shape-bottom {
+    width: 240px;
+    height: 180px;
+  }
+
+  .signup-form-wrapper {
+    padding: 40px 35px;
+  }
+
+  .signup-title {
+    font-size: 24px;
+    margin-bottom: 35px;
+    
+  }
+}
+
+/* Small Tablets - 768px */
+@media (max-width: 840px) {
+  .signup-container {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    max-width: 500px;
+    gap: 0;
+    padding: 15px;  
+  }
+  .signup-illustration img {
+    width: 100%;
+    margin-left: 0%;
+  }
+
+  .signup-illustration {
+    /* display: none; */
+    padding: 0px;
+  }
+
+  .bg-shape-top {
+    width: 280px;
+    height: 230px;
+  }
+
+  .bg-shape-bottom {
+    width: 200px;
+    height: 150px;
+  }
+
+  .signup-form-wrapper {
+   padding: 15px;
+  }
+
+  .signup-title {
+    font-size: 22px;
+    margin-bottom: 30px;
+    margin-bottom: 3%;
+  }
+  .divider{
+    margin: 5%       0;
+  }
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .social-buttons {
+    gap: 12px;
+  }
+
+  .social-btn {
+    width: 55px;
+    height: 55px;
+  }
+}
+
+/* Mobile - 480px */
+@media (max-width: 480px) {
+  .signup-page {
+    padding: 15px;
+  }
+
+  .signup-container {
+    border-radius: 15px;
+  }
+
+  .bg-shape-top {
+    width: 220px;
+    height: 180px;
+  }
+
+  .bg-shape-bottom {
+    width: 160px;
+    height: 120px;
+  }
+
+  .signup-form-wrapper {
+    padding: 15px;
+  }
+
+  .signup-title {
+    font-size: 20px;
+    margin-bottom: 25px;
+  }
+
+  .form-group input {
+    padding: 12px 14px;
+    font-size: 13px;
+  }
+
+  .btn-signup {
+    padding: 14px;
+    font-size: 15px;
+  }
+
+  .social-buttons {
+    gap: 10px;
+  }
+
+  .social-btn {
+    width: 50px;
+    height: 50px;
+  }
+
+  .social-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Extra Small Mobile - 360px */
+@media (max-width: 360px) {
+  .signup-page {
+    padding: 10px;
+  }
+
+  .signup-form-wrapper {
+    padding: 30px 20px;
+  }
+
+  .signup-title {
+    font-size: 18px;
+  }
+
+  .form-group label {
+    font-size: 13px;
+  }
+
+  .form-group input {
+    padding: 11px 12px;
+  }
+
+  .social-btn {
+    width: 45px;
+    height: 45px;
+  }
+}
