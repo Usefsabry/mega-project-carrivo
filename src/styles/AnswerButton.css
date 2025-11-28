@@ -1,0 +1,48 @@
+.answer-button-group {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.answer-option {
+  flex: 1;
+  max-width: 140px;
+  padding: 12px 24px;
+  background-color: #ffffff;
+  border: 2px solid #d0d0d0;
+  border-radius: 16px;
+  color: #00001C;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  position: relative;
+}
+
+.answer-option input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.answer-option span {
+  display: block;
+}
+
+.answer-option:hover {
+  border-color: #00599B;
+  background-color: #f8fbfd;
+}
+
+.answer-option.selected {
+  background-color: #00599B;
+  border-color: #00599B;
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .answer-option {
+    max-width: none;
+  }
+}
