@@ -1,0 +1,101 @@
+.navbar {
+  background: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+}
+
+.navbar-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 20px 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0077c8;
+  /* لو فيه صورة: width: 40px; height: auto; */
+}
+
+/* الروابط */
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.nav-links li:hover {
+  color: #0077c8;
+}
+
+/* الأزرار */
+.nav-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.btn {
+  padding: 8px 20px;
+  border-radius: 8px;
+  border: 2px solid #0077c8;
+  background: white;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.login {
+  color: #0077c8;
+  border: 2px solid #0077c8;
+}
+
+.login:hover {
+  background: #f0f8ff;
+}
+
+.signup {
+  background: #ff7d00;
+  border: none;
+  color: #fff;
+  margin-left: 8px;
+}
+
+.signup:hover {
+  background: #e66d00;
+}
+
+/* Responsive Navbar */
+@media (max-width: 950px) {
+  .navbar-container {
+    flex-direction: column;
+    padding: 16px 20px;
+    align-items: flex-start;
+  }
+  .nav-links {
+    gap: 14px;
+    margin: 12px 0;
+    flex-wrap: wrap;
+    font-size: 15px;
+  }
+  .nav-buttons {
+    margin-top: 12px;
+    gap: 10px;
+    flex-direction: row;
+  }
+  .logo {
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+}

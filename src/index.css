@@ -1,0 +1,11 @@
+.main-frame {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  background: #e8f3fc;
+}
