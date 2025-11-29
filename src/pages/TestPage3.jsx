@@ -31,9 +31,47 @@ const TestPage3 = () => {
   };
 
   const handleViewResults = () => {
+    console.log('🔵 Button clicked!');
+    console.log('🔵 Is complete?', isPageComplete(3));
+    console.log('🔵 All answers:', answers);
+    
     if (isPageComplete(3)) {
+      // حفظ البيانات
       saveProgress();
-      navigate('/test/results');
+      localStorage.setItem('testAnswers', JSON.stringify(answers));
+      localStorage.setItem('testCompleted', 'true');
+      localStorage.setItem('testCompletionDate', new Date().toISOString());
+      
+      console.log('✅ Saved to localStorage');
+      console.log('✅ testAnswers:', localStorage.getItem('testAnswers'));
+      console.log('✅ testCompleted:', localStorage.getItem('testCompleted'));
+      
+      // استخدام navigate مع replace
+      console.log('🔄 Navigating to /test/results...');
+      navigate('/test/results', { replace: true });
+      
+      // Fallback: لو مانفعش، استخدم window.location
+      setTimeout(() => {
+        const currentPath = window.location.hash.replace('#', '');
+        console.log('🔍 Current path:', currentPath);
+        
+        if (currentPath !== '/test/results') {
+          console.log('⚠️ Navigate failed, using window.location...');
+          window.location.hash = '/test/results';
+          
+          // آخر محاولة: reload
+          setTimeout(() => {
+            if (window.location.hash !== '#/test/results') {
+              console.log('⚠️ Forcing full page reload...');
+              window.location.href = window.location.origin + '/#/test/results';
+            }
+          }, 500);
+        }
+      }, 100);
+      
+    } else {
+      console.log('❌ Not all questions answered');
+      alert('Please answer all questions first!');
     }
   };
 
@@ -43,14 +81,16 @@ const TestPage3 = () => {
 
   const handleSave = () => {
     saveProgress();
+    alert('Progress saved! You can continue later.');
+    navigate('/');
   };
 
   return (
     <div className="test-page-container">
       <div className="main-head">
-        <header className="header">
-          <div className="logo">
-            <img src={logo} alt="Carrivo Logo" className="logo-image" />
+        <header className="test-header">
+          <div className="test-logo">
+            <img src={logo} alt="Carrivo Logo" className="test-logo-image" />
           </div>
           <button className="save-button" onClick={handleSave}>
             Save & Continue Later
@@ -73,7 +113,7 @@ const TestPage3 = () => {
         </div>
 
         <div className="hint">
-          <span className="hint-label">Hint:</span> Answer based on your true preference. There are no right or wrong answer
+          <span className="hint-label">Hint:</span> Answer based on your true preference. There are no right or wrong answers.
         </div>
 
         <div className="questions-container">

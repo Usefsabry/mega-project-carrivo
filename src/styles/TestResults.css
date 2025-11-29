@@ -1,0 +1,234 @@
+.test-results-container {
+  min-height: 100vh;
+  background: #ffffff;
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  color: #1a202c;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(0, 0, 0, 0.08);
+  border-top-color: #1a202c;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.results-content {
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Hero image فوق */
+.results-hero {
+  width: 260px;
+  height: 260px;
+  margin: 0 auto 35px;
+  border-radius: 32px;
+  overflow: hidden;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* النص */
+.results-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1a202c;
+  text-align: center;
+  margin-bottom: 10px;
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.results-subtitle {
+  font-size: 16px;
+  color: #4a5568;
+  text-align: center;
+  max-width: 520px;
+  margin: 0 auto 45px;
+  line-height: 1.6;
+}
+
+/* الجريد */
+.careers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 300px); /* كل كارد 300px */
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 45px;
+}
+
+/* الكارد من بره 300x413 */
+.career-card {
+  width: 300px;
+  height: 413px;
+  box-sizing: border-box;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; /* الجزء الداخلي فوق والزر تحت */
+  padding: 32px 24px 24px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.career-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 30px rgba(15, 23, 42, 0.12);
+}
+
+/* الكونتينت الداخلي 252x276 تقريبًا */
+.career-inner {
+  width: 252px;
+  height: 276px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* الأيقونة */
+.career-icon {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.career-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* الخط الصغير */
+.career-separator {
+  width: 32px;
+  height: 3px;
+  border-radius: 999px;
+  background: #ff6b35;
+  margin: 8px 0 10px;
+}
+
+/* عنوان الكارد والنص */
+.career-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 12px;
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.career-description {
+  font-size: 14px;
+  color: #718096;
+  line-height: 1.6;
+}
+
+/* زر View Details */
+.view-details-btn {
+  background: #ff6b35;
+  color: #ffffff;
+  border: none;
+  padding: 12px 0;
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  max-width: 252px;
+  transition: background 0.25s ease, transform 0.15s ease;
+}
+
+.view-details-btn:hover {
+  background: #ff5722;
+  transform: scale(1.03);
+}
+
+.view-details-btn:active {
+  transform: scale(0.98);
+}
+
+/* زر إعادة الاختبار */
+.retake-test-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 0 auto;
+  background: #ffffff;
+  color: #2d3748;
+  border: 1px solid #cbd5e0;
+  padding: 12px 30px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.15s ease;
+}
+
+.retake-test-btn:hover {
+  background: #f7fafc;
+  border-color: #a0aec0;
+  transform: scale(1.03);
+}
+
+.retake-test-btn:active {
+  transform: scale(0.98);
+}
+
+.retake-test-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .careers-grid {
+    grid-template-columns: repeat(2, 300px);
+  }
+}
+
+@media (max-width: 768px) {
+  .test-results-container {
+    padding: 40px 16px;
+  }
+
+  .careers-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .career-card {
+    margin: 0 auto;
+  }
+}
