@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Navbar from "../../components/common/Navbar";
 import Footer from "../../components/common/Footer";
 import hero from "../../assets/images/hero.png";
@@ -22,7 +23,9 @@ export default function Home() {
             mentors who guide your whole journey.
           </p>
           <div className="hero-buttons">
-            <button className="btn find">Find Your Path</button>
+            <Link to="/test/page1">
+              <button className="btn find">Find Your Path</button>
+            </Link>
             <button className="btn know">Know More</button>
           </div>
         </div>
@@ -64,67 +67,68 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Testimonials Section */} 
+      <section className="testimonials-section">
+        <h2>Words From Our Students</h2>
+        <p className="testimonials-desc">
+          See how Carrivo helped students explore, learn, and grow
+        </p>
+        <div className="testimonials-cards">
+          {/* Card 1 */}
+          <div className="testimonial-card">
+            <p className="testimonial-quote">
+              "Carrivo connected me with a mentor who actually understood what I wanted to do. My first UX/UI project was easy and rewarding!"
+            </p>
+            <div className="testimonial-info">
+              <img className="testimonial-img" src={user3} alt="Wael Selim" />
+              <div className="testimonial-person">
+                <p className="testimonial-name"><strong>Wael Selim</strong></p>
+                <p className="testimonial-role">UX/UI Designer</p>
+              </div>
+            </div>
+          </div>
+          {/* Card 2 */}
+          <div className="testimonial-card">
+            <p className="testimonial-quote">
+              "I never knew how to start my career in marketing until Carrivo showed me the path and guided me through my journey."
+            </p>
+            <div className="testimonial-info">
+              <img className="testimonial-img" src={user2} alt="Mai Galal" />
+              <div className="testimonial-person">
+                <p className="testimonial-name"><strong>Mai Galal</strong></p>
+                <p className="testimonial-role">Marketing Strategist</p>
+              </div>
+            </div>
+          </div>
+          {/* Card 3 */}
+          <div className="testimonial-card">
+            <p className="testimonial-quote">
+              "Thanks to Carrivo, I got advice from a real developer who helped me avoid mistakes I would have made on my own."
+            </p>
+            <div className="testimonial-info">
+              <img className="testimonial-img" src={user3} alt="Khaled Faris" />
+              <div className="testimonial-person">
+                <p className="testimonial-name"><strong>Khaled Faris</strong></p>
+                <p className="testimonial-role">Software Developer</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    {/* Testimonials Section */} 
-<section className="testimonials-section">
-  <h2>Words From Our Students</h2>
-  <p className="testimonials-desc">
-    See how Carrivo helped students explore, learn, and grow
-  </p>
-  <div className="testimonials-cards">
-    {/* Card 1 */}
-    <div className="testimonial-card">
-      <p className="testimonial-quote">
-        "Carrivo connected me with a mentor who actually understood what I wanted to do. My first UX/UI project was easy and rewarding!"
-      </p>
-      <div className="testimonial-info">
-        <img className="testimonial-img" src={user3} alt="Wael Selim" />
-        <div className="testimonial-person">
-          <p className="testimonial-name"><strong>Wael Selim</strong></p>
-          <p className="testimonial-role">UX/UI Designer</p>
-        </div>
-      </div>
-    </div>
-    {/* Card 2 */}
-    <div className="testimonial-card">
-      <p className="testimonial-quote">
-        "I never knew how to start my career in marketing until Carrivo showed me the path and guided me through my journey."
-      </p>
-      <div className="testimonial-info">
-        <img className="testimonial-img" src={user2} alt="Mai Galal" />
-        <div className="testimonial-person">
-          <p className="testimonial-name"><strong>Mai Galal</strong></p>
-          <p className="testimonial-role">Marketing Strategist</p>
-        </div>
-      </div>
-    </div>
-    {/* Card 3 */}
-    <div className="testimonial-card">
-      <p className="testimonial-quote">
-        "Thanks to Carrivo, I got advice from a real developer who helped me avoid mistakes I would have made on my own."
-      </p>
-      <div className="testimonial-info">
-        <img className="testimonial-img" src={user3} alt="Khaled Faris" />
-        <div className="testimonial-person">
-          <p className="testimonial-name"><strong>Khaled Faris</strong></p>
-          <p className="testimonial-role">Software Developer</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+      {/* Call to Action Section */}
+      <section className="cta-section">
+        <h2 className="cta-title">Ready to Find Your Path?</h2>
+        <p className="cta-desc">
+          Join thousands of students now and learn, grow, and connect<br />
+          with mentors who guide you
+        </p>
+        <Link to="/test/page1">
+          <button className="cta-btn">Get Started For Free</button>
+        </Link>
+      </section>
 
-{ /* Call to Action Section */ }
-<section className="cta-section">
-  <h2 className="cta-title">Ready to Find Your Path?</h2>
-  <p className="cta-desc">
-    Join thousands of students now and learn, grow, and connect<br />
-    with mentors who guide you
-  </p>
-  <button className="cta-btn">Get Started For Free</button>
-</section>
-<Footer />
+      <Footer />
     </div>
   );
 }
-

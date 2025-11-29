@@ -42,14 +42,16 @@ const TestPage2 = () => {
 
   const handleSave = () => {
     saveProgress();
+    alert('Progress saved! You can continue later.');
+    navigate('/');
   };
 
   return (
     <div className="test-page-container">
       <div className="main-head">
-        <header className="header">
-          <div className="logo">
-            <img src={logo} alt="Carrivo Logo" className="logo-image" />
+        <header className="test-header">
+          <div className="test-logo">
+            <img src={logo} alt="Carrivo Logo" className="test-logo-image" />
           </div>
           <button className="save-button" onClick={handleSave}>
             Save & Continue Later
@@ -72,7 +74,7 @@ const TestPage2 = () => {
         </div>
 
         <div className="hint">
-          <span className="hint-label">Hint:</span> Answer based on your true preference. There are no right or wrong answer
+          <span className="hint-label">Hint:</span> Answer based on your true preference. There are no right or wrong answers.
         </div>
 
         <div className="questions-container">
@@ -95,7 +97,7 @@ const TestPage2 = () => {
           onClick={handlePrevious}
         >
           <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M5.77134 9.03763H22V11.7043H5.77134L12.9233 18.8562L11.0377 20.7418L0.666748 10.371L11.0377 0L12.9233 1.88561L5.77134 9.03763Z" fill="currentColor"/>
+            <path d="M5.77134 9.03763H22V11.7043H5.77134L12.9233 18.562L11.0377 20.7418L0.666748 10.371L11.0377 0L12.9233 1.88561L5.77134 9.03763Z" fill="currentColor"/>
           </svg>
           Previous
         </button>

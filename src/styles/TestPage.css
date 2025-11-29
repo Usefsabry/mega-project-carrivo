@@ -38,7 +38,7 @@ body {
     border-bottom: 1px solid var(--color-border);
 }
 /* Header */
-.header {
+.test-header {
     width: 85%;
   display: flex;
   justify-content: space-between;

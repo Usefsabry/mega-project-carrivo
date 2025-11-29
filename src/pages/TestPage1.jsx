@@ -1,9 +1,8 @@
-
 import { useNavigate } from 'react-router-dom';
 import { useProgress } from '../components/ProgressContext.jsx';
 import AnswerButton from '../components/AnswerButton.jsx';
 import '../styles/TestPage.css';
-import logo from '../assets/images/logo.png'
+import logo from '../assets/images/logo.png';
 
 const TestPage1 = () => {
   const navigate = useNavigate();
@@ -38,20 +37,21 @@ const TestPage1 = () => {
 
   const handleSave = () => {
     saveProgress();
-    // alert('Progress saved successfully!');
+    alert('Progress saved! You can continue later.');
+    navigate('/');
   };
 
   return (
     <div className="test-page-container">
-        <div className="main-head">
-      <header className="header">
-        <div className="logo">
-           <img src={logo} alt="Carrivo Logo" className="logo-image" />
-        </div>
-        <button className="save-button" onClick={handleSave}>
-          Save & Continue Later
-        </button>
-      </header>
+      <div className="main-head">
+        <header className="test-header">
+          <div className="test-logo">
+            <img src={logo} alt="Carrivo Logo" className="test-logo-image" />
+          </div>
+          <button className="save-button" onClick={handleSave}>
+            Save & Continue Later
+          </button>
+        </header>
       </div>
 
       <div className="content">
@@ -69,7 +69,7 @@ const TestPage1 = () => {
         </div>
 
         <div className="hint">
-          <span className="hint-label">Hint:</span> Answer based on your true preference. There are no right or wrong answer
+          <span className="hint-label">Hint:</span> Answer based on your true preference. There are no right or wrong answers.
         </div>
 
         <div className="questions-container">
@@ -84,21 +84,21 @@ const TestPage1 = () => {
             </div>
           ))}
         </div>
-
-    </div>
-        <div className="next-button-container">
-          <button 
-            className={`next-button ${isPageComplete(1) ? 'enabled' : 'disabled'}`}
-            onClick={handleNext}
-            disabled={!isPageComplete(1)}
-          >
-            Next
-            <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.2287 9.03763H-8.2016e-05V11.7043H16.2287L9.07672 18.8562L10.9623 20.7418L21.3333 10.371L10.9623 0L9.07672 1.88561L16.2287 9.03763Z" fill="currentColor"/>
-            </svg>
-          </button>
-        </div>
       </div>
+
+      <div className="next-button-container">
+        <button 
+          className={`next-button ${isPageComplete(1) ? 'enabled' : 'disabled'}`}
+          onClick={handleNext}
+          disabled={!isPageComplete(1)}
+        >
+          Next
+          <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16.2287 9.03763H-8.2016e-05V11.7043H16.2287L9.07672 18.8562L10.9623 20.7418L21.3333 10.371L10.9623 0L9.07672 1.88561L16.2287 9.03763Z" fill="currentColor"/>
+          </svg>
+        </button>
+      </div>
+    </div>
   );
 };
 
