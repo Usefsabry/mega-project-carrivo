@@ -23,9 +23,9 @@ export default function Home() {
             mentors who guide your whole journey.
           </p>
           <div className="hero-buttons">
-            <Link to="/test/page1">
-              <button className="btn find">Find Your Path</button>
-            </Link>
+            <Link to="/assessment-start">
+  <button className="btn find">Find Your Path</button>
+</Link>
             <button className="btn know">Know More</button>
           </div>
         </div>
@@ -123,9 +123,10 @@ export default function Home() {
           Join thousands of students now and learn, grow, and connect<br />
           with mentors who guide you
         </p>
-        <Link to="/test/page1">
-          <button className="cta-btn">Get Started For Free</button>
-        </Link>
+       <Link to="/assessment-start">
+  <button className="cta-btn">Get Started For Free</button>
+</Link>
+
       </section>
 
       <Footer />

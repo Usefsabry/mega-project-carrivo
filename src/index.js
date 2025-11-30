@@ -4,16 +4,13 @@ import App from './App';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
-
-
 import { AuthProvider } from './Context/AuthContext';
-
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
+  <React.StrictMode>
     <AuthProvider>
       <App />
     </AuthProvider>
-  </BrowserRouter>
+  </React.StrictMode>
 );

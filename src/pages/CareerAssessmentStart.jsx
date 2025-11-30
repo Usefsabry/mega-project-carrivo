@@ -1,23 +1,25 @@
+import { useNavigate } from 'react-router-dom';
 import '../styles/CareerAssessmentStart.css';
 
-import headerImage from '../assets/images/Gbefore test.png'; 
-import clockIcon from '../assets/images/timer-line.svg'; 
-import smileIcon from '../assets/images/emotion-line.svg'; 
-import userIcon from '../assets/images/user-heart-line.svg'; 
+import headerImage from '../assets/images/Gbefore test.png';
+import clockIcon from '../assets/images/timer-line.svg';
+import smileIcon from '../assets/images/emotion-line.svg';
+import userIcon from '../assets/images/user-heart-line.svg';
 
 const CareerAssessmentStart = () => {
+  const navigate = useNavigate();
+
   const handleStartAssessment = () => {
-    window.location.href = '/assessment/question/1';
+    navigate('/test/page1');           // هنا بيروح لأول صفحة في التست
   };
 
   const handleNotReady = () => {
-    window.location.href = '/';
+    navigate('/');                     // يرجع للهوم
   };
 
   return (
     <div className="assessment-start-container">
       <div className="assessment-start-content">
-        
         {/* Header Image */}
         <div className="header-image">
           <img src={headerImage} alt="Career Path" />
@@ -35,7 +37,6 @@ const CareerAssessmentStart = () => {
           <h2 className="info-title">Before You Begin</h2>
 
           <div className="info-items">
-
             {/* Item 1 */}
             <div className="info-item">
               <div className="info-icon">
@@ -75,7 +76,6 @@ const CareerAssessmentStart = () => {
                 </p>
               </div>
             </div>
-
           </div>
         </div>
 
@@ -88,7 +88,6 @@ const CareerAssessmentStart = () => {
             Start Assessment
           </button>
         </div>
-
       </div>
     </div>
   );
