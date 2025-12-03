@@ -13,6 +13,7 @@ import TestPage2 from "./pages/TestPage2";
 import TestPage3 from "./pages/TestPage3";
 import TestResults from "./pages/TestResults";
 import CareerAssessmentStart from "./pages/CareerAssessmentStart";
+import CareerHub from "./pages/CareerHub";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
         </Router>
       </ProgressProvider>
     </AuthProvider>
+   
   );
 }
 
