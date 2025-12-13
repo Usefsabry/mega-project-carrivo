@@ -20,13 +20,13 @@
 }
 
 body {
-  /* max-width: 1440px; */
+
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* صفحة تسجيل الدخول */
+
 .login-page {
   min-height: 100vh;
   background: var(--bg-light);
@@ -39,7 +39,7 @@ body {
   
 }
 
-/* الأشكال الخلفية */
+
 .bg-shape-top {
   position: absolute;
   top: 0;
@@ -63,9 +63,9 @@ body {
   display: block;
 }
 
-/* الحاوية الرئيسية */
+
 .login-container {
-  max-width: 94%;
+  max-width: 92%;
   width: 100%;
   margin: auto;
   background: var(--white);
@@ -77,10 +77,10 @@ body {
   overflow: hidden;
   position: relative;
   z-index: 1;
-  padding:5%;
+  padding:2%  4%;
 }
 
-/* الرسم التوضيحي */
+
 .login-illustration {
   display: flex;
   align-items: center;
@@ -95,7 +95,7 @@ body {
   object-fit: contain;
 }
 
-/* قسم النموذج */
+
 .login-form-wrapper {
   display: flex;
   align-items: center;
@@ -108,7 +108,7 @@ body {
   max-width: 400px;
 }
 
-/* العنوان */
+
 .login-title {
   font-size: 28px;
   font-weight: 600;
@@ -130,7 +130,7 @@ body {
   display: inline-block;
 }
 
-/* النموذج */
+
 .login-form {
   margin-bottom: 30px;
 }
@@ -167,7 +167,7 @@ body {
   color: #aaa;
 }
 
-/* حقل كلمة المرور */
+
 .password-input-wrapper {
   position: relative;
 }
@@ -196,7 +196,7 @@ body {
   color: var(--text-primary);
 }
 
-/* Remember Me & Forgot Password */
+
 .checkbox-group {
   margin-bottom: 30px;
   display: flex;
@@ -237,7 +237,7 @@ body {
   text-decoration: underline;
 }
 
-/* زر تسجيل الدخول */
+
 .btn-login {
   width: 100%;
   padding: 16px;
@@ -262,7 +262,7 @@ body {
   transform: translateY(0);
 }
 
-/* الفاصل */
+
 .divider {
   display: flex;
   align-items: center;
@@ -284,7 +284,7 @@ body {
   font-size: 13px;
 }
 
-/* تسجيل الدخول بوسائل التواصل */
+
 .social-login {
   text-align: center;
 }

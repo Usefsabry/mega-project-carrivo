@@ -25,7 +25,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* صفحة التسجيل */
+
 .signup-page {
     min-height: 100vh;
   background: var(--bg-light);
@@ -115,7 +115,7 @@ body {
   overflow: hidden;
   position: relative;
   z-index: 1;
-  /* padding:5%; */
+  padding:2%  4%;
   z-index: 1;
 }
 
