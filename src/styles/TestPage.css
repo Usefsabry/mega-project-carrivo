@@ -278,6 +278,11 @@ body {
     flex-direction: column;
     gap: 16px;
   }
+  .test-header {
+    padding: 16px 20px;
+    flex-direction: column;
+    gap: 16px;
+  }
 
   .content {
     padding: 30px 16px;

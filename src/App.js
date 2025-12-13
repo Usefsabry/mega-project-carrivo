@@ -13,14 +13,14 @@ import TestPage2 from "./pages/TestPage2";
 import TestPage3 from "./pages/TestPage3";
 import TestResults from "./pages/TestResults";
 import CareerAssessmentStart from "./pages/CareerAssessmentStart";
-<<<<<<< HEAD
+
 import Mentors from "./pages/Mentors";
 import AboutUs from "./pages/AboutUs";
 import StudentDashboard from "./pages/StudentDashboard";
 import CareerPaths from "./pages/CareerPaths";
-=======
+
 import CareerHub from "./pages/CareerHub";
->>>>>>> 3d4a2dfa19eaa00adef9fc286b724392af5b4b7c
+
 
 function App() {
   return (
