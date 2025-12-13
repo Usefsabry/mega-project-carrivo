@@ -21,34 +21,35 @@ import CareerPaths from "./pages/CareerPaths";
 
 import CareerHub from "./pages/CareerHub";
 
-import CareerHub from "./pages/CareerHub";
 
 function App() {
   return (
-    <AuthProvider>
-      <ProgressProvider>
-        <Router>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<SignUp />} />
+    // <AuthProvider>
+    //   <ProgressProvider>
+    //     <Router>
+    //       <Routes>
+    //         <Route path="/" element={<Home />} />
+    //         <Route path="/login" element={<Login />} />
+    //         <Route path="/signup" element={<SignUp />} />
 
-            <Route path="/assessment-start" element={<CareerAssessmentStart />} />
+    //         <Route path="/assessment-start" element={<CareerAssessmentStart />} />
 
-            <Route path="/test/page1" element={<TestPage1 />} />
-            <Route path="/test/page2" element={<TestPage2 />} />
-            <Route path="/test/page3" element={<TestPage3 />} />
-            <Route path="/test/results" element={<TestResults />} />
+    //         <Route path="/test/page1" element={<TestPage1 />} />
+    //         <Route path="/test/page2" element={<TestPage2 />} />
+    //         <Route path="/test/page3" element={<TestPage3 />} />
+    //         <Route path="/test/results" element={<TestResults />} />
 
-            <Route path="/mentors" element={<Mentors />} />
-            <Route path="/about" element={<AboutUs />} />
-            <Route path="/dashboard" element={<StudentDashboard />} />
-            <Route path="/paths" element={<CareerPaths />} />
-            <Route path="/career-hub" element={<CareerHub />} />
-          </Routes>
-        </Router>
-      </ProgressProvider>
-    </AuthProvider>
+    //         <Route path="/mentors" element={<Mentors />} />
+    //         <Route path="/about" element={<AboutUs />} />
+    //         <Route path="/dashboard" element={<StudentDashboard />} />
+    //         <Route path="/paths" element={<CareerPaths />} />
+    //         <Route path="/career-hub" element={<CareerHub />} />
+    //       </Routes>
+    //     </Router>
+    //   </ProgressProvider>
+    // </AuthProvider>
+      <Router>
+    <CareerHub /></Router>
   );
 }
 

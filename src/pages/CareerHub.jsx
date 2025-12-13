@@ -15,6 +15,8 @@ import connectionsImg from '../assets/images/connections.png';
 import firstInternshipImg from '../assets/images/first-internship.png';
 import careerDesignImg from '../assets/images/career-design.png';
 import professionalMentorImg from '../assets/images/professional-mentor.png';
+import Navbar from '../components/common/Navbar';
+import Footer from '../components/common/Footer';
 
 const CareerHub = () => {
   const navigate = useNavigate();
@@ -147,6 +149,7 @@ const CareerHub = () => {
 
   return (
     <>
+    <Navbar/>
     <div className="career-hub">
       <div className="career-hub-header">
         <h1>Career Hub</h1>
@@ -206,6 +209,7 @@ const CareerHub = () => {
         ))}
       </div>
     </div>
+    <Footer/>
     </>
   );
 };

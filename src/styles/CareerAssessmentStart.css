@@ -2,7 +2,7 @@
   --color-background: #f5f5f5;
   --color-white: #ffffff;
   --color-dark: #00001C;
-  --color-border: #e0e0e0;
+  --color-border: #4d4d60;
   --color-primary: #00599B;
   --color-primary-hover: #004a82;
   --color-accent: #FF6B00;
@@ -165,7 +165,7 @@ body {
 
 .btn-secondary {
   background-color: transparent;
-  color: var(--color-dark);
+  color: #666;
   border: 2px solid var(--color-border);
 }
 
@@ -178,6 +178,7 @@ body {
   background-color: var(--color-accent);
   color: var(--color-white);
   margin-left: auto;
+  
 }
 
 .btn-primary:hover {
