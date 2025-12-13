@@ -5,6 +5,7 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 .loading-state {
@@ -38,7 +39,7 @@
   margin: 0 auto;
 }
 
-/* Hero image فوق */
+/* Hero image */
 .results-hero {
   width: 260px;
   height: 260px;
@@ -53,35 +54,33 @@
   object-fit: cover;
 }
 
-/* النص */
+/* Title & subtitle */
 .results-title {
   font-size: 32px;
   font-weight: 700;
   color: #1a202c;
   text-align: center;
   margin-bottom: 10px;
-  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 .results-subtitle {
   font-size: 16px;
   color: #4a5568;
   text-align: center;
-  max-width: 520px;
+  max-width: 720px;
   margin: 0 auto 45px;
   line-height: 1.6;
 }
 
-/* الجريد */
+/* Grid */
 .careers-grid {
   display: grid;
-  grid-template-columns: repeat(3, 300px); /* كل كارد 300px */
+  grid-template-columns: repeat(3, 300px);
   justify-content: center;
   gap: 24px;
   margin-bottom: 45px;
 }
 
-/* الكارد من بره 300x413 */
 .career-card {
   width: 300px;
   height: 413px;
@@ -94,7 +93,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between; /* الجزء الداخلي فوق والزر تحت */
+  justify-content: space-between;
   padding: 32px 24px 24px;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
@@ -104,7 +103,6 @@
   box-shadow: 0 16px 30px rgba(15, 23, 42, 0.12);
 }
 
-/* الكونتينت الداخلي 252x276 تقريبًا */
 .career-inner {
   width: 252px;
   height: 276px;
@@ -115,7 +113,6 @@
   justify-content: space-between;
 }
 
-/* الأيقونة */
 .career-icon {
   width: 64px;
   height: 64px;
@@ -131,7 +128,6 @@
   object-fit: contain;
 }
 
-/* الخط الصغير */
 .career-separator {
   width: 32px;
   height: 3px;
@@ -140,13 +136,11 @@
   margin: 8px 0 10px;
 }
 
-/* عنوان الكارد والنص */
 .career-title {
   font-size: 18px;
   font-weight: 700;
   color: #1a202c;
   margin-bottom: 12px;
-  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 .career-description {
@@ -155,7 +149,6 @@
   line-height: 1.6;
 }
 
-/* زر View Details */
 .view-details-btn {
   background: #ff6b35;
   color: #ffffff;
@@ -175,11 +168,6 @@
   transform: scale(1.03);
 }
 
-.view-details-btn:active {
-  transform: scale(0.98);
-}
-
-/* زر إعادة الاختبار */
 .retake-test-btn {
   display: flex;
   align-items: center;
@@ -203,32 +191,292 @@
   transform: scale(1.03);
 }
 
-.retake-test-btn:active {
-  transform: scale(0.98);
-}
-
 .retake-test-btn svg {
   width: 18px;
   height: 18px;
 }
 
-/* Responsive */
-@media (max-width: 1024px) {
-  .careers-grid {
-    grid-template-columns: repeat(2, 300px);
+/* ================= POPUP STYLES ================= */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(3px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  padding: 20px;
+}
+
+.popup-card {
+  width: 920px;
+  max-width: 96%;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+  border-radius: 16px;
+  padding: 28px 28px;
+  position: relative;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+  animation: popupFadeIn 0.22s ease;
+}
+
+/* close button top-right */
+.popup-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  background: #f1f5f9;
+  color: #1f2937;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-close-btn:hover {
+  background: #e2e8f0;
+}
+
+/* popup body is two columns */
+.popup-body {
+  display: flex;
+  gap: 34px;
+  align-items: flex-start;
+}
+
+/* LEFT column */
+.popup-left {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: flex-start;
+}
+
+.popup-image-wrap {
+  width: 100%;
+  height: 220px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #e6f2fb 0%, #f7fbff 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-large-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* left info area */
+.popup-left-info {
+  width: 100%;
+}
+
+.left-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.left-icon-wrap {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Required Skills title */
+.left-section-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+/* skills list */
+.left-skills {
+  list-style: none;
+  padding: 0;
+  margin: 6px 0 12px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #475569;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.check-inline {
+  flex-shrink: 0;
+}
+
+/* divider line between left sections */
+.left-divider {
+  height: 1px;
+  width: 100%;
+  background: #e6eef6;
+  margin: 14px 0;
+  border-radius: 1px;
+}
+
+/* estimated time */
+.estimated-time {
+  margin-top: 4px;
+}
+
+.est-title {
+  font-size: 14px;
+  color: #4b5563;
+  font-weight: 600;
+}
+
+.est-time {
+  font-size: 20px;
+  font-weight: 800;
+  color: #1f2937;
+  margin-top: 6px;
+}
+
+.est-sub {
+  font-size: 13px;
+  color: #6b7280;
+  margin-top: 4px;
+}
+
+/* RIGHT column */
+.popup-right {
+  flex: 1;
+  padding-right: 6px;
+}
+
+.popup-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #111827;
+  margin: 0 0 12px 0;
+}
+
+.popup-description {
+  font-size: 14px;
+  color: #4b5563;
+  line-height: 1.7;
+  max-width: 100%;
+  margin-bottom: 22px;
+}
+
+.popup-hr {
+  border: none;
+  border-top: 1px solid #e6eef6;
+  margin: 18px 0;
+}
+
+/* highlights */
+.popup-subtitle {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 12px;
+}
+
+.popup-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.highlight-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  color: #475569;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.highlight-text {
+  display: block;
+}
+
+/* action */
+.popup-action {
+  margin-top: 8px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.popup-start-btn {
+  background: #ff6b35;
+  color: #ffffff;
+  padding: 14px 40px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.12s ease, background 0.12s ease;
+  box-shadow: 0 6px 0 rgba(0,0,0,0.06);
+}
+
+.popup-start-btn:hover {
+  background: #ff5722;
+  transform: translateY(-2px);
+}
+
+/* small responsive tweaks */
+@media (max-width: 980px) {
+  .popup-card {
+    width: 92%;
+    padding: 20px;
+  }
+  .popup-body {
+    flex-direction: column;
+    gap: 18px;
+  }
+  .popup-left {
+    width: 100%;
+    align-items: center;
+  }
+  .popup-left-info {
+    text-align: left;
+  }
+  .popup-right {
+    padding-right: 0;
   }
 }
 
-@media (max-width: 768px) {
-  .test-results-container {
-    padding: 40px 16px;
-  }
-
+@media (max-width: 600px) {
   .careers-grid {
     grid-template-columns: 1fr;
   }
-
-  .career-card {
-    margin: 0 auto;
+  .popup-card {
+    padding: 16px;
+  }
+  .popup-large-img {
+    height: 160px;
+  }
+  .popup-start-btn {
+    width: 100%;
+    padding: 12px 16px;
   }
 }

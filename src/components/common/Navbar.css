@@ -1,100 +1,142 @@
-.navbar {
+/* NAVBAR MAIN */
+.crv-navbar {
   background: #ffffff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.06);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-.navbar-container {
+.crv-navbar-box {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 20px 120px;
+  padding: 18px 120px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.logo {
-  font-size: 28px;
-  font-weight: 700;
-  color: #0077c8;
-
+/* LOGO */
+.crv-logo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
 }
 
-
-.nav-links {
+.crv-logo-iconset {
+  position: relative;
   display: flex;
-  gap: 32px;
+  align-items: center;
+}
+
+.crv-logo-wave {
+  width: 28px;
+  height: 28px;
+}
+
+.crv-logo-star {
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  right: -6px;
+  top: -4px;
+}
+
+.crv-logo-text {
+  font-size: 26px;
+  font-weight: 700;
+  color: #1a70b5;
+}
+
+/* LINKS */
+.crv-navlinks {
+  display: flex;
+  gap: 36px;
   list-style: none;
   font-size: 16px;
-  font-weight: 500;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-links li {
-  cursor: pointer;
-  transition: color 0.2s;
-}
-
-.nav-links li:hover {
-  color: #0077c8;
-}
-
-.nav-buttons {
-  display: flex;
-  gap: 12px;
-}
-
-.btn {
-  padding: 8px 20px;
-  border-radius: 8px;
-  border: 2px solid #0077c8;
-  background: white;
   font-weight: 600;
+  color: #25324b;
+  margin: 0;
+}
+
+.crv-navlinks li {
   cursor: pointer;
-  font-size: 16px;
-  transition: background 0.2s, color 0.2s;
+  transition: 0.2s;
 }
 
-.login {
-  color: #0077c8;
-  border: 2px solid #0077c8;
+.crv-navlinks li:hover {
+  color: #1a70b5;
 }
 
-.login:hover {
-  background: #f0f8ff;
+/* BUTTONS */
+.crv-buttons {
+  display: flex;
+  gap: 16px;
 }
 
-.signup {
-  background-color: #ff7d00;
+.crv-btn {
+  padding: 10px 26px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+/* LOGIN */
+.crv-login {
+  background: #ffffff;
+  color: #1a70b5;
+  border: 2px solid #1a70b5;
+}
+
+.crv-login:hover {
+  background: #e6f3ff;
+}
+
+/* SIGNUP */
+.crv-signup {
+  background: #ff7d00;
+  color: #ffffff;
   border: none;
-  color: #fff;
-  margin-left: 8px;
 }
 
-/* .signup:hover {
-  background: #e66d00;
-} */
+.crv-signup:hover {
+  background: #ff8f26;
+}
 
-/* Responsive Navbar */
-@media (max-width: 950px) {
-  .navbar-container {
-    flex-direction: column;
-    padding: 16px 20px;
-    align-items: flex-start;
-  }
-  .nav-links {
-    gap: 14px;
-    margin: 12px 0;
-    flex-wrap: wrap;
-    font-size: 15px;
-  }
-  .nav-buttons {
-    margin-top: 12px;
-    gap: 10px;
-    flex-direction: row;
-  }
-  .logo {
-    font-size: 22px;
-    margin-bottom: 8px;
-  }
+/* ICONS AREA */
+.crv-icons-area {
+  display: flex;
+  align-items: center;
+}
+
+/* ICONS WRAPPER */
+.crv-icons {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+/* SINGLE ICON */
+.crv-icons {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.crv-icon {
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.crv-icon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }

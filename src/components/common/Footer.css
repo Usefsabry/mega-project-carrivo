@@ -1,94 +1,79 @@
 .footer {
-  background: #2e8ac7;
-  color: #fff;
-  padding: 90px 0 32px 0;
-  font-family: 'Manrope', sans-serif;
-  font-size: 17px;
+  background: #2e8ac7;               /* نفس الأزرق في الصورة */
+  color: #ffffff;
+  padding: 70px 0 32px 0;
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
 }
 
+/* نفس توزيع الأعمدة في الصورة */
 .footer-container {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 110px;
+  gap: 120px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
+/* العمود الأول */
 .footer-logo {
-  min-width: 270px;
+  min-width: 260px;
 }
 
 .logo-row {
-     display: flex;
-align-items: center;
-gap: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
+/* اللوجو بدون أي خلفية إضافية */
 .logo-composite {
-position: relative;
-display: inline-block;
-width: 34px;
-height: 34px;
-margin-right: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 140px;          /* حسب عرض صورة اللوجو عندك */
 }
 
 .logo-icon-wave {
-width: 32px;
-height: 32px;
-display: block;
+  width: 140px;
+  height: auto;
+  display: block;
 }
-
-.logo-icon-star {
-position: absolute;
-top: 2px; 
-left: 18px; 
-width: 16px;
-}
-
-.logo-footer {
-font-size: 40px;
-font-weight: 900;
-letter-spacing: 1.2px;
-margin-left: 10px;
-line-height: 1;
-display: flex;
-align-items: center;
-}
-
 
 .footer-logo p {
-  font-size: 18px;
-  margin-top: 12px;
+  font-size: 14px;
+  margin-top: 10px;
   margin-bottom: 0;
 }
 
+/* الأعمدة التانية والتالتة */
 .footer-links {
   display: flex;
-  gap: 93px;
+  gap: 90px;
 }
 
 .footer-col {
   display: flex;
   flex-direction: column;
-  gap: 17px;
-  min-width: 155px;
+  gap: 10px;
+  min-width: 150px;
 }
 
 .footer-title {
   font-weight: 700;
-  font-size: 19px;
-  margin-bottom: 16px;
-  color: #fff;
-  letter-spacing: 0.5px;
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #ffffff;
 }
 
+/* الروابط */
 .footer-col a {
-  color: #fff !important;
+  color: #ffffff;
   text-decoration: none;
-  font-size: 15.5px;
+  font-size: 14px;
   font-weight: 500;
-  transition: color 0.18s;
+  transition: color 0.18s, text-decoration 0.18s;
 }
 
 .footer-col a:hover {
@@ -96,59 +81,37 @@ align-items: center;
   text-decoration: underline;
 }
 
+/* أيقونات السوشيال – من غير خلفية شفافة */
 .footer-social {
   display: flex;
   gap: 18px;
   margin-top: 5px;
 }
 
-.footer-social span {
-  font-size: 21px;
-  background: rgba(255,255,255,0.09);
-  padding: 9px 15px;
-  border-radius: 10px;
+/* هنا شلت الخلفية الشفافة وخليتها أيقونات بيضا بسيطة */
+.footer-social a {
+  font-size: 20px;
+  color: #ffffff;
+  text-decoration: none;
   cursor: pointer;
-  font-weight: 700;
+  transition: color 0.18s;
 }
 
+.footer-social a:hover {
+  color: #ffb34d;
+}
+
+/* الخط الفاصل */
 .footer-separator {
   border: none;
   border-top: 1px solid #b6d0eb;
-  margin: 40px 0 13px 0;
+  margin: 34px auto 0 auto;
+  max-width: 1160px;
 }
 
+/* النص الأخير */
 .footer-copyright {
-  color: #fff;
+  color: #ffffff;
   text-align: center;
-  font-size: 15px;
-  font-weight: 500;
-  margin-bottom: 0;
-  margin-top: 18px;
-}
-
-@media (max-width: 1050px) {
-  .footer-container {
-    flex-direction: column;
-    align-items: center;
-    gap: 44px;
-    text-align: center;
-  }
-  .footer-links {
-    flex-direction: column;
-    align-items: center;
-    gap: 31px;
-    margin-top: 15px;
-  }
-  .footer-col {
-    min-width: 115px;
-    gap: 10px;
-  }
-  .footer-logo {
-    min-width: 0;
-    margin-bottom: 13px;
-  }
-  .logo-row {
-    justify-content: center;
-    gap: 8px;
-  }
+  font-size: 13px
 }
