@@ -4,6 +4,7 @@ import { useProgress } from '../components/ProgressContext.jsx';
 import AnswerButton from '../components/AnswerButton.jsx';
 import '../styles/TestPage.css';
 import logo from '../assets/images/logo.png';
+import { submitTestApi } from "../api/index";
 
 const TestPage3 = () => {
   const navigate = useNavigate();
@@ -83,6 +84,18 @@ const TestPage3 = () => {
     saveProgress();
     alert('Progress saved! You can continue later.');
     navigate('/');
+  };
+
+  const handleFinish = async () => {
+    if (!isPageComplete(3)) return;
+    try {
+      await submitTestApi(answers);
+      localStorage.setItem("testCompleted", "true");
+      localStorage.setItem("testAnswers", JSON.stringify(answers));
+      navigate("/test/results");
+    } catch (e) {
+      alert("Could not submit test. Please try again.");
+    }
   };
 
   return (

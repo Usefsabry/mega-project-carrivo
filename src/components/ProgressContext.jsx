@@ -1,4 +1,7 @@
 import React, { createContext, useState, useContext } from 'react';
+import { saveTestProgressApi, getTestProgressApi } from "../api/index";
+import { useContext as useReactContext } from "react";
+import { AuthContext } from "../Context/AuthContext";
 
 const ProgressContext = createContext();
 
@@ -11,6 +14,7 @@ export const useProgress = () => {
 };
 
 export const ProgressProvider = ({ children }) => {
+  const { user } = useContext(AuthContext);
   const [answers, setAnswers] = useState({
     // Page 1
     page1_q1: '', page1_q2: '', page1_q3: '', page1_q4: '', page1_q5: '',
@@ -51,16 +55,31 @@ export const ProgressProvider = ({ children }) => {
     return Object.values(pageAnswers).every(answer => answer !== '');
   };
 
-  const saveProgress = () => {
-    localStorage.setItem('carrivo_test_progress', JSON.stringify(answers));
-    console.log('Progress saved:', answers);
+  const saveProgress = async () => {
+    try {
+      await saveTestProgressApi(answers);
+      localStorage.setItem('carrivo_test_progress', JSON.stringify(answers));
+    } catch (e) {
+      console.error("remote save failed, keeping local only", e);
+    }
   };
 
-  const loadProgress = () => {
-    const saved = localStorage.getItem('carrivo_test_progress');
-    if (saved) {
-      setAnswers(JSON.parse(saved));
+  const loadProgress = async () => {
+    // 1) حاول تجيب من الباك إند لو فيه user
+    if (user?.id) {
+      try {
+        const data = await getTestProgressApi(user.id);
+        if (data?.answers) {
+          setAnswers(data.answers);
+          return;
+        }
+      } catch (e) {
+        console.warn("could not load remote progress", e);
+      }
     }
+    // 2) fallback لـ localStorage
+    const saved = localStorage.getItem('carrivo_test_progress');
+    if (saved) setAnswers(JSON.parse(saved));
   };
 
   const resetProgress = () => {

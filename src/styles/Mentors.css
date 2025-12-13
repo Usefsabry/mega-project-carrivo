@@ -1,0 +1,263 @@
+.mentors-wrapper {
+  padding: 40px 120px 80px;
+  font-family: "Manrope", sans-serif;
+  background: #f5f7fb;
+}
+
+/* TITLE */
+.mentors-title {
+  font-size: 30px;
+  font-weight: 800;
+  color: #25324b;
+  text-align: center;
+}
+
+.mentors-subtitle {
+  text-align: center;
+  color: #6b7280;
+  margin-top: 6px;
+  margin-bottom: 26px;
+  font-size: 14px;
+}
+
+/* SEARCH BAR TOP */
+.mentors-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.mentor-search-wrapper {
+  position: relative;
+  flex: 1;
+  max-width: 640px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #9ca3af;
+}
+
+.mentor-search {
+  width: 100%;
+  padding: 14px 18px 14px 44px;
+  border-radius: 999px;
+  border: 1px solid #ced4da;
+  background: #ffffff;
+  font-size: 15px;
+  outline: none;
+}
+
+/* TRACK BUTTON */
+.track-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 22px;
+  background: #eef5ff;
+  color: #1a70b5;
+  border-radius: 999px;
+  border: none;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.track-label {
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.track-value {
+  color: #1a70b5;
+}
+
+/* FILTERS */
+.mentor-filters {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 30px;
+  align-items: center;
+}
+
+.filter-chip {
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  padding: 9px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  color: #374151;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.filter-arrow {
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+.clear-btn {
+  margin-left: auto;
+  padding: 9px 16px;
+  border-radius: 999px;
+  background: transparent;
+  border: 1px solid #1a70b5;
+  color: #1a70b5;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* GRID – 4 فوق و4 تحت */
+.mentor-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 280px);
+  justify-content: center;
+  gap: 28px;
+}
+
+/* CARD – 280×420 تقريبًا */
+.mentor-card {
+  width: 280px;
+  height: 420px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  padding: 22px 20px 18px;
+  text-align: center;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.05);
+  transition: 0.2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.mentor-card:hover {
+  transform: translateY(-4px);
+}
+
+/* IMAGE */
+.mentor-avatar-wrapper {
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 4px;
+}
+
+.mentor-img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* TEXT */
+.mentor-name {
+  margin-top: 10px;
+  font-weight: 700;
+  font-size: 16px;
+  color: #111827;
+}
+
+.mentor-title {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+/* INFO ROW (rating + price) */
+.mentor-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 14px 0 16px;
+  font-size: 14px;
+  padding: 0 4px;
+}
+
+.mentor-star {
+  width: 16px;
+  margin-right: 4px;
+}
+
+.mentor-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #4D4D60;
+  font-weight: 600;
+}
+
+.mentor-price {
+  font-weight: 700;
+  color: #4D4D60;
+}
+
+/* BUTTONS في آخر الكارد */
+.request-btn {
+  width: 100%;
+  padding: 11px;
+  background: #ff7d00;
+  border-radius: 8px;
+  color: #ffffff;
+  font-weight: 600;
+  border: none;
+  margin-bottom: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.profile-btn {
+  width: 100%;
+  padding: 11px;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1200px) {
+  .mentors-wrapper {
+    padding: 32px 60px 70px;
+  }
+
+  .mentor-grid {
+    grid-template-columns: repeat(3, 280px);
+  }
+}
+
+@media (max-width: 900px) {
+  .mentors-wrapper {
+    padding: 28px 24px 60px;
+  }
+
+  .mentors-top {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .track-btn {
+    align-self: flex-start;
+  }
+
+  .mentor-grid {
+    grid-template-columns: repeat(2, 280px);
+  }
+}
+
+@media (max-width: 640px) {
+  .mentors-wrapper {
+    padding: 24px 16px 50px;
+  }
+
+  .mentor-grid {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+}

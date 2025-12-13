@@ -1,0 +1,482 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+/* General Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #F8FAFC;
+  font-family: 'Manrope', sans-serif;
+  color: #1F2937;
+}
+
+/* Layout Container */
+.dash-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar Styling */
+.dash-sidebar {
+  width: 260px;
+  background: #fff;
+  border-right: 1px solid #E5E7EB;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.dash-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 48px;
+}
+
+.logo-img {
+  width: 40px; 
+  height: auto;
+}
+
+.logo-text {
+  font-size: 24px;
+  font-weight: 800;
+  color: #0056D2; /* Carrivo Blue */
+}
+
+.dash-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  color: #6B7280;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.nav-item img {
+  width: 20px;
+  opacity: 0.6;
+}
+
+.nav-item:hover {
+  background: #F3F4F6;
+}
+
+.nav-item.active {
+  background: #E0EBF9; /* Light Blue BG */
+  color: #0056D2;
+}
+
+.nav-item.active img {
+  opacity: 1;
+  filter: brightness(0) saturate(100%) invert(26%) sepia(89%) saturate(1596%) hue-rotate(204deg) brightness(91%) contrast(96%); /* CSS filter to make icon blue */
+}
+
+.logout-btn {
+  background: transparent;
+  border: none;
+  color: #DC2626; /* Red color */
+  font-weight: 700;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.logout-icon {
+  font-size: 18px;
+  transform: rotate(180deg);
+}
+
+/* Main Content Area */
+.dash-content {
+  flex: 1;
+  padding: 32px 48px;
+  max-width: 1400px; /* Prevent it from stretching too wide on huge screens */
+}
+
+/* Header */
+.dash-header {
+  margin-bottom: 24px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #E5E7EB;
+}
+
+.user-welcome {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.user-avatar-placeholder img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-welcome h1 {
+  font-size: 20px;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 4px;
+}
+
+.user-welcome p {
+  color: #6B7280;
+  font-size: 14px;
+}
+
+/* Cards Common Style */
+.main-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 24px;
+  border: 1px solid #E5E7EB;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+  margin-bottom: 24px;
+}
+
+/* Path Card (Top Large Card) */
+.path-card {
+  display: flex !important; 
+  flex-direction: row; 
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; 
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 0; 
+  border: 1px solid #E5E7EB;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+  margin-bottom: 24px;
+  overflow: hidden; 
+  min-height: 240px;
+}
+
+.path-info {
+  flex: 1;
+  padding: 32px; 
+  max-width: 60%; 
+  z-index: 2; 
+}
+
+.badge-blue {
+  background: #E0EBF9;
+  color: #0056D2;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.path-info h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.path-desc {
+  color: #6B7280;
+  font-size: 14px;
+  line-height: 1.6;
+  max-width: 90%;
+  margin-bottom: 24px;
+}
+
+.progress-section {
+  margin-bottom: 24px;
+  max-width: 80%;
+}
+
+.progress-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  font-weight: 600;
+  color: #4B5563;
+  margin-bottom: 8px;
+}
+
+.percent-text {
+  color: #0056D2;
+}
+
+.progress-bar-bg {
+  width: 100%;
+  height: 10px;
+  background: #E5E7EB;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: #0056D2;
+  border-radius: 10px;
+}
+
+.btn-primary {
+  background: #FF6B00; /* Orange */
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(255, 107, 0, 0.2);
+  transition: transform 0.1s;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+}
+
+.path-image {
+  flex: 0 0 40%; 
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  height: 100%;
+}
+
+.path-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  display: block;
+}
+
+/* Middle Section Layout */
+.middle-section {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.overview-card {
+  flex: 2; /* Takes up 66% space */
+}
+
+.mentor-card {
+  flex: 1; /* Takes up 33% space */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Badge Light */
+.badge-light {
+  background: #E0EBF9;
+  color: #0056D2;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin-bottom: 24px;
+  display: inline-block;
+}
+
+/* Circular Charts Grid */
+.overview-grid-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  margin-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px dashed #E5E7EB;
+}
+
+.overview-grid-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Circular CSS Implementation */
+.circle-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100px;
+}
+
+.circle-chart {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  /* Conic Gradient creates the chart without JS libraries */
+  background: conic-gradient(#0056D2 calc(var(--percent) * 1%), #F3F4F6 0);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.circle-inner {
+  width: 58px;
+  height: 58px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle-text {
+  font-weight: 800;
+  font-size: 14px;
+  color: #111827;
+}
+
+.circle-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #4B5563;
+  line-height: 1.3;
+}
+
+/* Simple Stats (0%) */
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100px;
+}
+
+.stat-val {
+  font-size: 20px;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #6B7280;
+}
+
+/* Mentor Card */
+.mentor-empty-state {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.mentor-empty-state h3 {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.mentor-empty-state p {
+  font-size: 12px;
+  color: #6B7280;
+  margin-bottom: 24px;
+}
+
+.mentor-empty-state .btn-primary {
+  width: 100%;
+}
+
+/* Quick Access */
+.quick-access-section h3 {
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+.quick-cards {
+  display: flex;
+  gap: 20px;
+}
+
+.quick-card {
+  background: #fff;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+}
+
+.quick-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.icon-box {
+  width: 40px;
+  height: 40px;
+  background: #E0EBF9;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-box img {
+  width: 20px;
+}
+
+.quick-card span {
+  font-weight: 700;
+  font-size: 14px;
+  color: #374151;
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .path-card {
+    flex-direction: column-reverse; 
+    text-align: center;
+    padding-bottom: 20px;
+  }
+  .path-info {
+    max-width: 100%;
+  }
+
+  .path-image {
+    width: 100%;
+    height: 200px;
+  }
+
+  .middle-section {
+    flex-direction: column;
+  }
+  .dash-sidebar {
+    display: none; 
+  }
+}
