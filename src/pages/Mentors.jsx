@@ -28,6 +28,13 @@ const STATIC_MENTORS = [
   { id: 8, name: "Youssef Karim", title: "Senior Product Designer", rating: 4.9, price: "500$", img: m8 },
 ];
 
+// Arrow SVG Component
+const ArrowIcon = () => (
+  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M15.9999 17.5625L22.5996 10.9629L24.4852 12.8485L15.9999 21.3339L7.51465 12.8485L9.40026 10.9629L15.9999 17.5625Z" fill="#00001C"/>
+  </svg>
+);
+
 export default function Mentors() {
 
   const [search, setSearch] = useState("");
@@ -47,10 +54,14 @@ export default function Mentors() {
           to guide your next steps and support your growth
         </p>
 
-        {/* Search + Track */}
-        <div className="mentors-top">
+        {/* Search Bar */}
+        <div className="mentors-search-row">
           <div className="mentor-search-wrapper">
-            <span className="search-icon">&#128269;</span>
+            <span className="search-icon">
+              <svg width="20" height="20" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M24.0414 22.1561L29.7517 27.8663L27.8661 29.7519L22.1558 24.0417C20.1026 25.6843 17.4987 26.667 14.6667 26.667C8.04275 26.667 2.66675 21.291 2.66675 14.667C2.66675 8.04299 8.04275 2.66699 14.6667 2.66699C21.2907 2.66699 26.6667 8.04299 26.6667 14.667C26.6667 17.499 25.6841 20.1029 24.0414 22.1561ZM21.3663 21.1667C22.9967 19.4865 24.0001 17.1945 24.0001 14.667C24.0001 9.51032 19.8234 5.33366 14.6667 5.33366C9.51008 5.33366 5.33341 9.51032 5.33341 14.667C5.33341 19.8237 9.51008 24.0003 14.6667 24.0003C17.1942 24.0003 19.4862 22.997 21.1665 21.3666L21.3663 21.1667Z" fill="#4D4D60"/>
+              </svg>
+            </span>
             <input
               type="text"
               className="mentor-search"
@@ -68,21 +79,24 @@ export default function Mentors() {
 
         {/* Filters */}
         <div className="mentor-filters">
+          <div className="flater">
           <button className="filter-chip">
-            Sort By <span className="filter-arrow">⌄</span>
+            Sort By <span className="filter-arrow"><ArrowIcon /></span>
           </button>
           <button className="filter-chip">
-            Experience Level <span className="filter-arrow">⌄</span>
+            Experience Level <span className="filter-arrow"><ArrowIcon /></span>
           </button>
           <button className="filter-chip">
-            Availability <span className="filter-arrow">⌄</span>
+            Availability <span className="filter-arrow"><ArrowIcon /></span>
           </button>
           <button className="filter-chip">
-            Rating <span className="filter-arrow">⌄</span>
+            Rating <span className="filter-arrow"><ArrowIcon /></span>
           </button>
           <button className="filter-chip">
-            Price <span className="filter-arrow">⌄</span>
+            Price <span className="filter-arrow"><ArrowIcon /></span>
           </button>
+          </div>
+
           <button className="clear-btn">Clear Filters</button>
         </div>
 

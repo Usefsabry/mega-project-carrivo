@@ -98,8 +98,8 @@ export default function Navbar() {
               Mentors
             </li>
             <li 
-              onClick={() => handleNavigate("/hub")}
-              className={isActive("/hub") ? "active" : ""}
+              onClick={() => handleNavigate("/career-hub")}
+              className={isActive("/career-hub") ? "active" : ""}
             >
               Career Hub
             </li>
@@ -161,11 +161,12 @@ export default function Navbar() {
       <div className={`crv-mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
         <ul className="crv-mobile-links">
           <li 
-            onClick={() => handleNavigate("/")}
+          onClick={() => handleNavigate("/")}
             className={isActive("/") ? "active" : ""}
           >
             Home
-          </li>
+          </li>   
+         
           <li 
             onClick={() => handleNavigate("/paths")}
             className={isActive("/paths") ? "active" : ""}
@@ -179,8 +180,8 @@ export default function Navbar() {
             Mentors
           </li>
           <li 
-            onClick={() => handleNavigate("/hub")}
-            className={isActive("/hub") ? "active" : ""}
+            onClick={() => handleNavigate("/career-hub")}
+            className={isActive("/career-hub") ? "active" : ""}
           >
             Career Hub
           </li>

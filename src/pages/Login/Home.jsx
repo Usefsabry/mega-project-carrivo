@@ -18,18 +18,21 @@ export default function Home() {
       {/* Hero Section */}
       <section className="home-hero">
         <div className="home-hero-text">
-          <h1>Find Your Path,<br />Shape Your Future</h1>
-          <p>
-            Carrivo helps you discover the career that fits you and connect with
-            mentors who guide your whole journey.
-          </p>
-          <Link to="/dashboard">
-            <div className="hero-actions">
+          <div className="hero-text-content">
+            <h1>Find Your Path,<br />Shape Your Future</h1>
+            <p>
+              Carrivo helps you discover the career that fits you and connect with
+              mentors who guide your whole journey.
+            </p>
+          </div>
+          <div className="hero-actions">
+            <Link to="/dashboard">
               <button className="home-hero-btn">Find Your Path</button>
+            </Link>
+            <Link to="/about">
               <button className="home-hero-btn secondary">Know More</button>
-            </div>
-
-          </Link>
+            </Link>
+          </div>
         </div>
         <div className="home-hero-img">
           <img src={hero} alt="hero" />

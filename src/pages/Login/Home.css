@@ -1,5 +1,6 @@
 body {
   font-family: 'Manrope', sans-serif;
+  margin: 0;
 }
 
 .home-page {
@@ -14,294 +15,352 @@ body {
   padding: 80px 120px;
   display: flex;
   justify-content: space-between;
-  align-items: center;   
-  background: #e2f7fe;
+  align-items: stretch;
+  /* Stretch columns to same height */
+  background: #EAFBFF;
+  /* Light cyan matching design */
+}
+
+@media (min-width: 1000px) {
+  .home-hero {
+    /* No visual change needed here if default is row */
+  }
+}
+
+/* Large screens: add gap to prevent text and image from being too far apart */
+@media (min-width: 1440px) {
+  .home-hero {
+    display: flex;
+    justify-content: space-evenly;
+    /* padding-left: 160px; */
+    /* padding-right: 160px; */
+  }
 }
 
 .home-hero-text {
+  flex: 1 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 10px;
+}
+
+.hero-text-content {
   flex: 1;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  /* Centers text vertically in the space above buttons */
 }
-
 
 .home-hero-text h1 {
   font-size: 48px;
   font-weight: 800;
   color: #0c1b33;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
   line-height: 1.2;
 }
 
 .home-hero-text p {
   font-size: 18px;
   color: #4a5568;
-  max-width: 500px;
-  margin-bottom: 32px;
+  max-width: 520px;
+  margin-bottom: 40px;
   line-height: 1.6;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 0;
+}
+
+.hero-actions a {
+  text-decoration: none;
 }
 
 .home-hero-btn {
   padding: 14px 32px;
-  border-radius: 10px;
+  border-radius: 8px;
+  /* Slightly sharper than 10 */
   font-weight: 700;
   font-size: 16px;
   cursor: pointer;
-  background: #ff7d00;
+  background: #FF6B00;
+  /* Vibrant Orange */
   color: #fff;
   border: none;
   display: inline-flex;
   align-items: center;
-  margin-top: 30px;
-  
+  transition: background 0.2s;
 }
-
-
-.home-hero-btn.secondary {
-  background: #e2f7fe;
-  color: #0c1b33;
-  border: 2px solid #0c1b33;
-}
-
 
 .home-hero-btn:hover {
-  background: #ff8f26;
+  background: #e55f00;
+}
+
+.home-hero-btn.secondary {
+  background: transparent;
+  color: #0c1b33;
+  border: 1px solid #0c1b33;
+  /* Thinner border */
+}
+
+.home-hero-btn.secondary:hover {
+  background: rgba(12, 27, 51, 0.05);
+  color: #0c1b33;
 }
 
 .home-hero-img {
   flex: 1;
   display: flex;
   justify-content: flex-end;
-  align-items: center;  
+  align-items: center;
 }
 
 .home-hero-img img {
-  width: 590px;
-  height: 421px;
+  width: 100%;
+  max-width: 590px;
+  height: auto;
   object-fit: cover;
-  border-radius: 22px;
-  margin-bottom: 30px;      
+  border-radius: 20px;
+  /* Ensure image height dictates container height */
 }
-
-.hero-actions {
-  display: flex;
-  gap: 12px;
-  margin-top: 24px;
-  text-decoration: none;
-}
-
 
 /* How It Works Section */
 .home-how-works {
-  background: #f6f8fa;
-  padding: 64px 0;
+  background: #ffffff;
+  /* White background */
+  padding: 100px 0;
   text-align: center;
-}
-
-.home-how-steps {
-  display: flex;
-  justify-content: center;
-  gap: 120px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.home-step {
-  width: 250px;
-  text-align: center;
-}
-
-.home-step-icon {
-  font-size: 44px;
-  color: #1a70b5;
-  margin-bottom: 24px;
 }
 
 .home-how-works h2 {
   font-size: 32px;
   font-weight: 800;
-  color: #192a46;
-  margin-bottom: 10px;
+  color: #00001C;
+  margin-bottom: 12px;
 }
 
 .home-how-desc {
   color: #717d91;
   font-size: 16px;
-  margin-bottom: 38px;
+  margin-bottom: 60px;
+}
+
+.home-how-steps {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.home-step {
+  flex: 1;
+  max-width: 320px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-step-icon {
+  font-size: 48px;
+  color: #00599B;
+  /* Primary Blue style */
+  margin-bottom: 24px;
+}
+
+.home-step h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #00001C;
+  margin-bottom: 12px;
+}
+
+.home-step p {
+  font-size: 14px;
+  color: #555560;
+  line-height: 1.5;
 }
 
 /* Testimonials Section */
 .home-testimonials {
-  background: #e2f7fe;
-  padding: 64px 0 80px 0;
+  background: #EAFBFF;
+  /* Matches hero bg */
+  padding: 80px 0;
   text-align: center;
 }
 
 .home-testimonials h2 {
-  color: #192a46;
+  color: #00001C;
   font-size: 32px;
   font-weight: 800;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .home-testimonials-desc {
   color: #717d91;
   font-size: 16px;
-  margin-bottom: 38px;
+  margin-bottom: 50px;
 }
 
 .home-testimonials-cards {
   display: flex;
-  gap: 38px;
+  gap: 30px;
   justify-content: center;
-  margin-top: 22px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  flex-wrap: wrap;
 }
 
 .home-testimonial-card {
   background: #fff;
-  border-radius: 22px;
-  box-shadow: 0 2px 16px rgba(26, 52, 128, 0.06);
-  width: 340px;
-  min-height: 220px;
-  padding: 28px 22px 18px 22px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 89, 155, 0.05);
+  flex: 1;
+  min-width: 300px;
+  max-width: 360px;
+  padding: 32px 24px;
   text-align: left;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 12px;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.home-testimonial-quote {
+  color: #4D4D60;
+  font-size: 15px;
+  line-height: 1.6;
+  font-weight: 500;
+  margin: 0;
 }
 
 .home-testimonial-info {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-top: 8px;
 }
 
 .home-testimonial-img {
-  width: 45px;
-  height: 45px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   object-fit: cover;
-  margin: 0;
 }
 
 .home-testimonial-person {
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 .home-testimonial-name {
   margin: 0;
   font-size: 15px;
-  color: #192a46;
+  color: #00001C;
   font-weight: 700;
 }
 
 .home-testimonial-role {
   margin: 0;
   font-size: 13px;
-  color: #4a5568;
-}
-
-.home-testimonial-quote {
-  color: #232a3d;
-  font-size: 16px;
-  margin-bottom: 8px;
-  font-family: 'Manrope', sans-serif;
-  font-weight: 500;
+  color: #7C7C8D;
+  margin-top: 2px;
 }
 
 /* Call to Action Section */
 .home-cta {
-  background: #f6f8fa;
+  background: #ffffff;
   text-align: center;
-  padding: 70px 0;
+  padding: 100px 0;
 }
 
 .home-cta-title {
-  color: #192a46;
-  font-size: 28px;
+  color: #00001C;
+  font-size: 32px;
   font-weight: 800;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 
 .home-cta-desc {
-  color: #717d91;
-  font-size: 17px;
+  color: #555560;
+  font-size: 16px;
   margin-bottom: 32px;
+  line-height: 1.6;
 }
 
 .home-cta-btn {
-  background: #ff6d00;
+  background: #FF6B00;
   color: #fff;
   font-weight: 700;
-  font-size: 18px;
-  padding: 16px 38px;
-  border-radius: 10px;
+  font-size: 16px;
+  padding: 16px 40px;
+  border-radius: 8px;
   border: none;
-  box-shadow: 0 2px 8px rgba(26, 52, 128, 0.09);
   cursor: pointer;
-  transition: background 0.2s, box-shadow 0.2s;
+  transition: background 0.2s;
 }
 
 .home-cta-btn:hover {
-  background: #ff7a00;
-  box-shadow: 0 4px 12px rgba(26, 52, 128, 0.14);
+  background: #e55f00;
 }
 
 /* Responsive */
 @media (max-width: 1000px) {
-  .home-how-steps {
-    flex-direction: column;
-    gap: 38px;
-    align-items: center;
-  }
-
-  .home-step {
-    width: 90vw;
-    max-width: 360px;
-    margin: 0 auto;
-  }
-
-  .home-testimonials-cards {
-    flex-direction: column;
-    gap: 28px;
-    align-items: center;
-  }
-
-  .home-testimonial-card {
-    width: 95vw;
-    max-width: 360px;
-  }
-
   .home-hero {
+    flex-direction: column-reverse;
+    /* Stack image on top or text on top? Design usually Text top. Reverse if needed. */
     flex-direction: column;
-    align-items: center;
-    padding: 40px 16px;
+    padding: 60px 24px;
     text-align: center;
-  }
-
-  .home-hero-img {
-    justify-content: center;
-  }
-
-  .home-hero-img img {
-    width: 90vw;
-    max-width: 380px;
-    margin: 24px auto 0 auto;
-  }
-
-  .home-hero-text h1 {
-    font-size: 36px;
+    gap: 40px;
   }
 
   .home-hero-text {
     align-items: center;
   }
 
-  .home-hero-text p {
-    text-align: center;
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .home-hero-img img {
+    margin: 0;
+    max-width: 100%;
+  }
+
+  .home-how-steps {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .home-testimonials-cards {
+    justify-content: center;
+  }
+
+  .home-testimonial-card {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 600px) {
+  .home-hero h1 {
+    font-size: 32px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .home-hero-btn {
+    width: 100%;
+    justify-content: center;
   }
 }
