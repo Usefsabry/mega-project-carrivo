@@ -17,7 +17,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-} 
+}
 
 body {
 
@@ -27,7 +27,7 @@ body {
 
 
 .signup-page {
-    min-height: 100vh;
+  min-height: 100vh;
   background: var(--bg-light);
   display: flex;
   align-items: center;
@@ -37,71 +37,34 @@ body {
   padding: 40px;
 }
 
-/* الأشكال الخلفية */
-/* .bg-shape-top {
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform: translate(-20%, -20%);
-  z-index: 0;
-}
 
-.bg-shape-bottom {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  transform: translate(20%, 20%);
-  z-index: 0;
-}
-
-.bg-shape-top svg,
-.bg-shape-bottom svg {
-  width: 450px;
-  height: auto;
-  display: block;
-} */
-
-/**************************************/
 .bg-shape-top {
   position: absolute;
   top: 0;
   left: 0;
-  transform: translate(-20%, -20%);
   z-index: 0;
+  width: 540px;
+  height: auto;
+  transform: translate(-15%, -15%);
 }
 
 .bg-shape-bottom {
   position: absolute;
   bottom: 0;
   right: 0;
-  transform: translate(20%, 20%);
   z-index: 0;
+  width: 360px;
+  height: auto;
+  transform: translate(15%, 15%);
 }
 
 .bg-shape-top svg,
 .bg-shape-bottom svg {
-  width: 450px;
+  width: 100%;
   height: auto;
   display: block;
 }
 
-
-
-/* الحاوية الرئيسية */
-/* .signup-container {
-  max-width: 1400px;
-  width: 100%;
-  background: var(--white);
-  border-radius: 20px;
-  box-shadow: 0 20px 60px rgba(0, 89, 155, 0.15);
-  display: grid;
-  gap: 2%;
-  grid-template-columns: 560px 1fr;
-  min-height: 784px;
-  overflow: hidden;
-  position: relative;
-  z-index: 1;
-} */
 .signup-container {
   max-width: 92%;
   width: 100%;
@@ -115,14 +78,14 @@ body {
   overflow: hidden;
   position: relative;
   z-index: 1;
-  padding:2%  4%;
+  padding: 0% 2%;
   z-index: 1;
 }
 
 /* الرسم التوضيحي */
 .signup-illustration {
   display: flex;
-  
+
   align-items: center;
   justify-content: center;
   padding: 40px;
@@ -140,7 +103,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 60px ;
+  padding: 60px;
 }
 
 .signup-form-content {
@@ -153,10 +116,9 @@ body {
   font-size: 28px;
   font-weight: 600;
   color: var(--text-primary);
-  margin-bottom: 40px;
+  margin-bottom: 24px;
   line-height: 1.4;
-    white-space: nowrap;
-
+  white-space: nowrap;
 }
 
 .brand-name {
@@ -167,11 +129,11 @@ body {
 
 /* النموذج */
 .signup-form {
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 
 .form-group {
-  margin-bottom: 24px;
+  margin-bottom: 12px;
 }
 
 .form-group label {
@@ -233,7 +195,7 @@ body {
 
 /* Remember Me */
 .checkbox-group {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .checkbox-label {
@@ -285,7 +247,7 @@ body {
 .divider {
   display: flex;
   align-items: center;
-  margin: 30px 0;
+  margin: 20px 0;
   position: relative;
 }
 
@@ -311,7 +273,7 @@ body {
 .social-title {
   font-size: 14px;
   color: var(--text-primary);
-  margin-bottom: 20px;
+  margin-bottom: 12px;
   font-weight: 500;
 }
 
@@ -319,7 +281,7 @@ body {
   display: flex;
   gap: 16px;
   justify-content: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .social-btn {
@@ -375,17 +337,17 @@ body {
     grid-template-columns: 50% 1fr;
     min-height: 700px;
   }
- .signup-illustration img {
-  width: 125%;
-}
+
+  .signup-illustration img {
+    width: 125%;
+  }
+
   .bg-shape-top {
     width: 350px;
-    height: 290px;
   }
 
   .bg-shape-bottom {
-    width: 240px;
-    height: 180px;
+    width: 235px;
   }
 
   .signup-form-wrapper {
@@ -395,7 +357,6 @@ body {
   .signup-title {
     font-size: 24px;
     margin-bottom: 35px;
-    
   }
 }
 
@@ -406,40 +367,39 @@ body {
     min-height: auto;
     max-width: 500px;
     gap: 0;
-    padding: 15px;  
+    padding: 15px;
   }
+
   .signup-illustration img {
     width: 100%;
     margin-left: 0%;
   }
 
   .signup-illustration {
-    /* display: none; */
     padding: 0px;
   }
 
   .bg-shape-top {
     width: 280px;
-    height: 230px;
   }
 
   .bg-shape-bottom {
-    width: 200px;
-    height: 150px;
+    width: 187px;
   }
 
   .signup-form-wrapper {
-   padding: 15px;
+    padding: 15px;
   }
 
   .signup-title {
     font-size: 22px;
-    margin-bottom: 30px;
     margin-bottom: 3%;
   }
-  .divider{
-    margin: 5%       0;
+
+  .divider {
+    margin: 5% 0;
   }
+
   .form-group {
     margin-bottom: 20px;
   }
@@ -466,12 +426,10 @@ body {
 
   .bg-shape-top {
     width: 220px;
-    height: 180px;
   }
 
   .bg-shape-bottom {
-    width: 160px;
-    height: 120px;
+    width: 147px;
   }
 
   .signup-form-wrapper {
