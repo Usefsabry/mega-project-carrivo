@@ -1,0 +1,366 @@
+/* ============================================
+   CHATBOT TOGGLE BUTTON
+   ============================================ */
+.chatbot-toggle {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 70px;
+    height: 70px;
+    background: #FF8A3D;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(255, 138, 61, 0.4);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 9998;
+    border: none;
+}
+
+.chatbot-toggle:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 32px rgba(255, 138, 61, 0.5);
+}
+
+.chatbot-toggle.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.8);
+}
+
+/* Large screens: Force toggle visibility */
+@media (min-width: 1024px) {
+    .chatbot-toggle.hidden {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: scale(1) !important;
+    }
+}
+
+.chatbot-toggle-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.chatbot-pulse {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: rgba(255, 138, 61, 0.3);
+    animation: pulse 2.5s ease-out infinite;
+    pointer-events: none;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(1.4);
+        opacity: 0;
+    }
+}
+
+/* ============================================
+   CHATBOT WINDOW
+   ============================================ */
+.chatbot-window {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 380px;
+    /* Default for medium/small screens */
+    height: 600px;
+    background: #ffffff;
+    border-radius: 24px;
+    /* Updated to 24px as requested */
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px) scale(0.95);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 9999;
+    overflow: hidden;
+}
+
+/* Wider and Taller on large screens */
+@media (min-width: 1024px) {
+    .chatbot-window {
+        width: 600px;
+        height: 800px;
+        bottom: 30px;
+        /* Align with bottom of toggle */
+        right: 120px;
+        /* 30px (right) + 70px (toggle width) + 20px (gap) */
+    }
+}
+
+.chatbot-window.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+/* ============================================
+   CHATBOT HEADER
+   ============================================ */
+.chatbot-header {
+    background: #ffffff;
+    /* White background as requested */
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 20px 20px 0 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.chatbot-header-content {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.chatbot-avatar {
+    width: 42px;
+    /* Slightly smaller to match clean look */
+    height: 42px;
+    border-radius: 50%;
+    /* background: white; no need if header is white, unless image needs bg */
+    object-fit: contain;
+}
+
+.chatbot-header-text h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #00599B;
+    /* Blue text as requested */
+    line-height: 1.2;
+}
+
+.chatbot-close {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.chatbot-close:hover {
+    background: #f0f4f8;
+}
+
+/* ============================================
+   MESSAGES AREA
+   ============================================ */
+.chatbot-messages {
+    flex: 1;
+    padding: 24px 24px;
+    overflow-y: auto;
+    background: #E8F4FC;
+    /* Light blue background as requested */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.chatbot-messages::-webkit-scrollbar {
+    width: 5px;
+}
+
+.chatbot-messages::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.chatbot-messages::-webkit-scrollbar-thumb {
+    background: rgba(14, 107, 168, 0.2);
+    border-radius: 10px;
+}
+
+/* ============================================
+   MESSAGE BUBBLES
+   ============================================ */
+.message {
+    display: flex;
+    gap: 12px;
+    align-items: flex-end;
+    /* Align avatar to bottom of message usually looks better, or flex-start */
+    animation: slideIn 0.3s ease-out;
+    max-width: 100%;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.message-bot {
+    align-self: flex-start;
+}
+
+.message-user {
+    align-self: flex-end;
+    flex-direction: row-reverse;
+}
+
+.message-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #fff;
+    flex-shrink: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.message-content {
+    max-width: 75%;
+    /* Limit width so it doesn't span full width */
+    display: flex;
+    flex-direction: column;
+}
+
+.message-text {
+    padding: 14px 18px;
+    font-size: 15px;
+    line-height: 1.5;
+    margin: 0;
+    /* Removed word-break: break-all; to fix letter stacking issue */
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+/* Bot Message Style */
+.message-bot .message-text {
+    background: #00599B;
+    color: #ffffff;
+    border-radius: 18px 18px 18px 4px;
+    box-shadow: 0 2px 8px rgba(0, 89, 155, 0.15);
+}
+
+/* User Message Style */
+.message-user .message-text {
+    background: #ffffff;
+    color: #333333;
+    border-radius: 18px 18px 4px 18px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    min-width: 0;
+    /* Important for flex items */
+}
+
+/* ============================================
+   INPUT AREA (The new white box design)
+   ============================================ */
+.chatbot-footer {
+    padding: 20px 24px;
+    background: #E8F4FC;
+    /* Match chat background or white? Usually distinct. User said "inside the message box... which is white also". If the INPUT is white, the footer bg should probably match chat bg or be transparent. */
+    /* If footer is transparent/blue, the input box is white. */
+    border-top: none;
+    /* Seamless integration */
+}
+
+.chatbot-input-container {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 16px;
+    /* Updated to 16px as requested */
+    padding: 8px 8px 8px 24px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    width: 100%;
+}
+
+.chatbot-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    background: transparent;
+    padding: 8px 0;
+    color: #333;
+    font-family: inherit;
+}
+
+.chatbot-input::placeholder {
+    color: #4D4D60;
+    opacity: 1;
+    font-size: 17px;
+}
+
+.chatbot-send-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: transparent;
+    /* "SVG background... white" (it's inside white box already) */
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-left: 8px;
+}
+
+.chatbot-send-btn:hover:not(:disabled) {
+    background: #f5f5f5;
+    transform: scale(1.1);
+}
+
+.chatbot-send-btn svg {
+    width: 24px;
+    height: 24px;
+    transform: rotate(-45deg);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 768px) {
+    .chatbot-toggle {
+        bottom: 20px;
+        right: 20px;
+        width: 60px;
+        height: 60px;
+    }
+
+    .chatbot-window {
+        width: 100%;
+        height: 100%;
+        max-height: 100vh;
+        bottom: 0;
+        right: 0;
+        border-radius: 0;
+    }
+
+    .chatbot-header {
+        border-radius: 0;
+    }
+
+    .chatbot-footer {
+        padding: 16px;
+    }
+}

@@ -57,10 +57,18 @@ export const ProgressProvider = ({ children }) => {
 
   const saveProgress = async () => {
     try {
-      await saveTestProgressApi(answers);
+      // Save locally first
       localStorage.setItem('carrivo_test_progress', JSON.stringify(answers));
+      
+      // Try to save remotely (optional - won't fail if user not logged in)
+      try {
+        await saveTestProgressApi(answers);
+      } catch (e) {
+        // Silent fail - user might not be logged in
+        console.warn("Remote save failed (user might not be logged in)");
+      }
     } catch (e) {
-      console.error("remote save failed, keeping local only", e);
+      console.error("Failed to save progress locally", e);
     }
   };
 

@@ -20,6 +20,7 @@ import StudentDashboard from "./pages/StudentDashboard";
 import CareerPaths from "./pages/CareerPaths";
 
 import CareerHub from "./pages/CareerHub";
+import ChatBot from "./components/ChatBot/ChatBot";
 
 
 function App() {
@@ -45,10 +46,12 @@ function App() {
             <Route path="/paths" element={<CareerPaths />} />
             <Route path="/career-hub" element={<CareerHub />} />
           </Routes>
+          
+          {/* ChatBot - يظهر في كل الصفحات */}
+          <ChatBot />
         </Router>
       </ProgressProvider>
     </AuthProvider>
-    
   );
 }
 

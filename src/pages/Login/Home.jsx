@@ -129,7 +129,9 @@ export default function Home() {
           with mentors who guide you
         </p>
         <Link to="/assessment-start">
-          <button className="home-cta-btn">Get Started For Free</button>
+          <button className="home-cta-btn" data-cursor-element-id="cursor-el-100">
+            Get Started For Free
+          </button>
         </Link>
       </section>
 

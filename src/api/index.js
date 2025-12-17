@@ -1,4 +1,5 @@
 const BASE_URL = "http://carrivo.runasp.net";
+const PREDICTION_API_URL = "https://tufted-brooklyn-thermodynamically.ngrok-free.dev";
 
 /* ===== Helpers ===== */
 function authHeaders() {
@@ -105,13 +106,36 @@ export async function saveTestProgressApi(answers) {
 }
 
 export async function submitTestApi(answers) {
-  const res = await fetch(`${BASE_URL}/api/test/submit`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json", ...authHeaders() },
-    body: JSON.stringify({ answers }),
-  });
-  if (!res.ok) throw new Error("Failed to submit test");
-  return res.json();
+  const requestBody = { answers };
+  console.log("📤 API Request Body:", JSON.stringify(requestBody, null, 2));
+  console.log("📊 Answers count:", Object.keys(answers).length);
+  console.log("📋 Sample answers:", Object.entries(answers).slice(0, 5));
+  
+  try {
+    // Use local proxy to avoid CORS issues
+    const res = await fetch('/api/predict', {
+      method: "POST",
+      headers: { 
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(requestBody),
+    });
+    
+    console.log("📡 Response status:", res.status);
+    
+    if (!res.ok) {
+      const errorText = await res.text();
+      console.error("❌ API Error:", res.status, errorText);
+      throw new Error(`Failed to submit test: ${res.status} - ${errorText}`);
+    }
+    
+    const result = await res.json();
+    console.log("📥 API Response:", result);
+    return result;
+  } catch (error) {
+    console.error("❌ Error submitting test:", error);
+    throw error;
+  }
 }
 
 export async function getTestProgressApi(userId) {

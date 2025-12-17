@@ -2,52 +2,64 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/TestResults.css";
 import CareerImg from "../assets/images/Career.jpg";
-// import { STATIC_PATHS } from "../constants/pathsList";
-
-
-// ====== STATIC 24 TRACKS ======
 import STATIC_PATHS from "../constants/pathsList";
-
-
 import { submitTestApi } from "../api/index";
+import { useProgress } from "../components/ProgressContext";
 
 export default function TestResults() {
   const navigate = useNavigate();
+  const { answers } = useProgress();
 
   const [loading, setLoading] = useState(true);
-  const [recommended, setRecommended] = useState([]); // التراكات اللي هترجع
-
+  const [recommended, setRecommended] = useState([]);
   const [selectedCareer, setSelectedCareer] = useState(null);
 
   useEffect(() => {
-    const savedAnswers = localStorage.getItem("testAnswers");
-    if (!savedAnswers) {
+    // Check if all answers are filled
+    const answeredCount = Object.values(answers).filter(answer => answer !== '').length;
+    if (answeredCount === 0) {
+      console.log("❌ No answers found");
       navigate("/");
       return;
     }
 
     async function fetchResults() {
       try {
-        const answers = JSON.parse(savedAnswers);
+        console.log("📤 Sending request with answers:", answers);
 
         const result = await submitTestApi(answers);
+        console.log("📥 API Response:", result);
 
-        const returnedTrackIds = result?.recommendedTracks || [];
+        // Handle different response formats
+        const returnedTrackIds = result?.recommendedTracks || result?.tracks || result || [];
+        console.log("🎯 Track IDs received:", returnedTrackIds);
+
+        if (!Array.isArray(returnedTrackIds)) {
+          console.error("❌ Invalid response format. Expected array, got:", typeof returnedTrackIds);
+          setLoading(false);
+          return;
+        }
 
         const filteredTracks = STATIC_PATHS.filter((t) =>
           returnedTrackIds.includes(t.id)
         );
+        console.log("✅ Filtered tracks:", filteredTracks);
+
+        if (filteredTracks.length === 0) {
+          console.warn("⚠️ No tracks matched the returned IDs");
+        }
 
         setRecommended(filteredTracks);
         setLoading(false);
       } catch (e) {
-        console.error(e);
+        console.error("❌ Error fetching results:", e);
+        console.error("Error details:", e.message, e.stack);
         setLoading(false);
       }
     }
 
     fetchResults();
-  }, [navigate]);
+  }, [navigate, answers]);
 
   if (loading)
     return (
@@ -64,8 +76,15 @@ export default function TestResults() {
       </p>
 
       {/* === Dynamic Cards === */}
-      <div className="careers-grid">
-        {recommended.map((career) => (
+      {recommended.length === 0 ? (
+        <div style={{ textAlign: "center", padding: "40px" }}>
+          <p style={{ color: "#666", fontSize: "18px" }}>
+            No recommendations found. Please try again.
+          </p>
+        </div>
+      ) : (
+        <div className="careers-grid">
+          {recommended.map((career) => (
           <div key={career.id} className="career-card">
             <div className="career-inner">
               <div className="career-icon">
@@ -83,7 +102,8 @@ export default function TestResults() {
             </button>
           </div>
         ))}
-      </div>
+        </div>
+      )}
 
       {/* POPUP */}
       {selectedCareer && (

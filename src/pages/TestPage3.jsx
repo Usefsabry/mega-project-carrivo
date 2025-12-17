@@ -37,38 +37,11 @@ const TestPage3 = () => {
     console.log('🔵 All answers:', answers);
     
     if (isPageComplete(3)) {
-      // حفظ البيانات
+      // حفظ البيانات (async - won't block navigation)
       saveProgress();
-      localStorage.setItem('testAnswers', JSON.stringify(answers));
-      localStorage.setItem('testCompleted', 'true');
-      localStorage.setItem('testCompletionDate', new Date().toISOString());
       
-      console.log('✅ Saved to localStorage');
-      console.log('✅ testAnswers:', localStorage.getItem('testAnswers'));
-      console.log('✅ testCompleted:', localStorage.getItem('testCompleted'));
-      
-      // استخدام navigate مع replace
-      console.log('🔄 Navigating to /test/results...');
+      // Navigate directly
       navigate('/test/results', { replace: true });
-      
-      // Fallback: لو مانفعش، استخدم window.location
-      setTimeout(() => {
-        const currentPath = window.location.hash.replace('#', '');
-        console.log('🔍 Current path:', currentPath);
-        
-        if (currentPath !== '/test/results') {
-          console.log('⚠️ Navigate failed, using window.location...');
-          window.location.hash = '/test/results';
-          
-          // آخر محاولة: reload
-          setTimeout(() => {
-            if (window.location.hash !== '#/test/results') {
-              console.log('⚠️ Forcing full page reload...');
-              window.location.href = window.location.origin + '/#/test/results';
-            }
-          }, 500);
-        }
-      }, 100);
       
     } else {
       console.log('❌ Not all questions answered');
@@ -90,8 +63,6 @@ const TestPage3 = () => {
     if (!isPageComplete(3)) return;
     try {
       await submitTestApi(answers);
-      localStorage.setItem("testCompleted", "true");
-      localStorage.setItem("testAnswers", JSON.stringify(answers));
       navigate("/test/results");
     } catch (e) {
       alert("Could not submit test. Please try again.");
