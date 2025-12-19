@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 
 import Home from "./pages/Login/Home";
 import Login from "./pages/Login/Login";
@@ -22,6 +22,18 @@ import CareerPaths from "./pages/CareerPaths";
 import CareerHub from "./pages/CareerHub";
 import ChatBot from "./components/ChatBot/ChatBot";
 
+// Component to conditionally render ChatBot
+function ChatBotWrapper() {
+  const location = useLocation();
+  const hideChatBotPaths = ['/login', '/signup'];
+  
+  // Don't show ChatBot on login and signup pages
+  if (hideChatBotPaths.includes(location.pathname)) {
+    return null;
+  }
+  
+  return <ChatBot />;
+}
 
 function App() {
   return (
@@ -47,8 +59,8 @@ function App() {
             <Route path="/career-hub" element={<CareerHub />} />
           </Routes>
           
-          {/* ChatBot - يظهر في كل الصفحات */}
-          <ChatBot />
+          {/* ChatBot - يظهر في كل الصفحات ماعدا Login و Signup */}
+          <ChatBotWrapper />
         </Router>
       </ProgressProvider>
     </AuthProvider>

@@ -17,9 +17,9 @@ export async function saveTestProgressApi(answers) {
 
 export async function submitTestApi(answers) {
   const requestBody = { answers };
-  console.log("📤 API Request Body:", JSON.stringify(requestBody, null, 2));
-  console.log("📊 Answers count:", Object.keys(answers).length);
-  console.log("📋 Sample answers:", Object.entries(answers).slice(0, 5));
+  console.log(" API Request Body:", JSON.stringify(requestBody, null, 2));
+  console.log(" Answers count:", Object.keys(answers).length);
+  console.log(" Sample answers:", Object.entries(answers).slice(0, 5));
   
   try {
     const res = await fetch(`${PREDICTION_API_URL}/predict`, {

@@ -3,15 +3,22 @@ import chatbotIcon from '../../assets/images/chatbot.png';
 import botAvatar from '../../assets/images/Group.png';
 import './ChatBot.css';
 
+import { sendChatMessageApi } from '../../api/index';
+
+
+
 const ChatBot = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [messages, setMessages] = useState([]);
     const [inputValue, setInputValue] = useState('');
+    const [isTyping, setIsTyping] = useState(false);
+    const [sessionId, setSessionId] = useState(localStorage.getItem('chat_session_id'));
+
     const messagesEndRef = useRef(null);
     const inputRef = useRef(null);
 
     // User Avatar (Placeholder SVG)
-    const userAvatar = "https://cdn-icons-png.flaticon.com/512/149/149071.png"; // Simple default user avatar
+    const userAvatar = "https://cdn-icons-png.flaticon.com/512/149/149071.png";
 
     // Welcome message when chatbot opens for the first time
     useEffect(() => {
@@ -26,10 +33,10 @@ const ChatBot = () => {
         }
     }, [isOpen, messages.length]);
 
-    // Auto-scroll to bottom when new messages arrive
+    // Auto-scroll to bottom
     useEffect(() => {
         scrollToBottom();
-    }, [messages]);
+    }, [messages, isTyping]);
 
     // Focus input when chat opens
     useEffect(() => {
@@ -61,25 +68,35 @@ const ChatBot = () => {
 
         setMessages(prev => [...prev, userMessage]);
         setInputValue('');
+        setIsTyping(true);
 
-        // Simulate bot typing
-        setTimeout(() => {
+        try {
+            const response = await sendChatMessageApi(inputValue, sessionId);
+
+            if (response.session_id) {
+                setSessionId(response.session_id);
+                localStorage.setItem('chat_session_id', response.session_id);
+            }
+
             const botMessage = {
                 id: Date.now() + 1,
-                text: "Thanks for your message! The Chatbot will be connected to the API soon to provide accurate answers. 🚀",
+                text: response.response,
                 sender: 'bot',
                 timestamp: new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
             };
             setMessages(prev => [...prev, botMessage]);
-        }, 1000);
 
-        // TODO: Replace with actual API call
-        // const response = await fetch('YOUR_API_ENDPOINT', {
-        //   method: 'POST',
-        //   headers: { 'Content-Type': 'application/json' },
-        //   body: JSON.stringify({ message: inputValue })
-        // });
-        // const data = await response.json();
+        } catch (error) {
+            const errorMessage = {
+                id: Date.now() + 1,
+                text: "Sorry, I'm having trouble connecting right now. Please try again later.",
+                sender: 'bot',
+                timestamp: new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
+            };
+            setMessages(prev => [...prev, errorMessage]);
+        } finally {
+            setIsTyping(false);
+        }
     };
 
     const handleKeyPress = (e) => {
@@ -141,6 +158,18 @@ const ChatBot = () => {
                             </div>
                         </div>
                     ))}
+                    {isTyping && (
+                        <div className="message message-bot typing">
+                            <img src={botAvatar} alt="bot" className="message-avatar" />
+                            <div className="message-content">
+                                <div className="typing-dots">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
+                        </div>
+                    )}
                     <div ref={messagesEndRef} />
                 </div>
 
