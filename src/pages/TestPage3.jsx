@@ -10,6 +10,11 @@ const TestPage3 = () => {
   const navigate = useNavigate();
   const { answers, updateAnswer, calculateProgress, isPageComplete, saveProgress } = useProgress();
 
+  // Scroll to top when page loads
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const questions = [
     { id: 'page3_q1', text: 'I would like to start my own business' },
     { id: 'page3_q2', text: 'I like to cook' },
@@ -35,14 +40,14 @@ const TestPage3 = () => {
     console.log('🔵 Button clicked!');
     console.log('🔵 Is complete?', isPageComplete(3));
     console.log('🔵 All answers:', answers);
-    
+
     if (isPageComplete(3)) {
       // حفظ البيانات (async - won't block navigation)
       saveProgress();
-      
+
       // Navigate directly
       navigate('/test/results', { replace: true });
-      
+
     } else {
       console.log('❌ Not all questions answered');
       alert('Please answer all questions first!');
@@ -89,8 +94,8 @@ const TestPage3 = () => {
             <span className="progress-percentage">{Math.round(calculateProgress())}%</span>
           </div>
           <div className="progress-bar">
-            <div 
-              className="progress-fill" 
+            <div
+              className="progress-fill"
               style={{ width: `${calculateProgress()}%` }}
             ></div>
           </div>
@@ -115,24 +120,24 @@ const TestPage3 = () => {
       </div>
 
       <div className="navigation-buttons-container">
-        <button 
+        <button
           className="previous-button"
           onClick={handlePrevious}
         >
           <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M5.77134 9.03763H22V11.7043H5.77134L12.9233 18.8562L11.0377 20.7418L0.666748 10.371L11.0377 0L12.9233 1.88561L5.77134 9.03763Z" fill="currentColor"/>
+            <path d="M5.77134 9.03763H22V11.7043H5.77134L12.9233 18.8562L11.0377 20.7418L0.666748 10.371L11.0377 0L12.9233 1.88561L5.77134 9.03763Z" fill="currentColor" />
           </svg>
           Previous
         </button>
 
-        <button 
+        <button
           className={`next-button view-results-button ${isPageComplete(3) ? 'enabled' : 'disabled'}`}
           onClick={handleViewResults}
           disabled={!isPageComplete(3)}
         >
           View Your Results
           <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M16.2287 9.03763H-8.2016e-05V11.7043H16.2287L9.07672 18.8562L10.9623 20.7418L21.3333 10.371L10.9623 0L9.07672 1.88561L16.2287 9.03763Z" fill="currentColor"/>
+            <path d="M16.2287 9.03763H-8.2016e-05V11.7043H16.2287L9.07672 18.8562L10.9623 20.7418L21.3333 10.371L10.9623 0L9.07672 1.88561L16.2287 9.03763Z" fill="currentColor" />
           </svg>
         </button>
       </div>

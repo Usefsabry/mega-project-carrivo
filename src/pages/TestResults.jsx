@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/TestResults.css";
 import CareerImg from "../assets/images/Career.jpg";
+import HeaderImg from "../assets/images/roooot.png";
 import STATIC_PATHS from "../constants/pathsList";
 import { submitTestApi } from "../api/index";
 import { useProgress } from "../components/ProgressContext";
@@ -27,15 +28,14 @@ export default function TestResults() {
       try {
         console.log("📤 Sending request with answers:", answers);
 
+        // API Call simulation or actual call
         const result = await submitTestApi(answers);
         console.log("📥 API Response:", result);
 
-        // Handle different response formats
         const returnedTrackIds = result?.recommendedTracks || result?.tracks || result || [];
-        console.log("🎯 Track IDs received:", returnedTrackIds);
 
         if (!Array.isArray(returnedTrackIds)) {
-          console.error("❌ Invalid response format. Expected array, got:", typeof returnedTrackIds);
+          console.error("❌ Invalid response format");
           setLoading(false);
           return;
         }
@@ -43,17 +43,11 @@ export default function TestResults() {
         const filteredTracks = STATIC_PATHS.filter((t) =>
           returnedTrackIds.includes(t.id)
         );
-        console.log("✅ Filtered tracks:", filteredTracks);
-
-        if (filteredTracks.length === 0) {
-          console.warn("⚠️ No tracks matched the returned IDs");
-        }
 
         setRecommended(filteredTracks);
         setLoading(false);
       } catch (e) {
         console.error("❌ Error fetching results:", e);
-        console.error("Error details:", e.message, e.stack);
         setLoading(false);
       }
     }
@@ -70,9 +64,14 @@ export default function TestResults() {
 
   return (
     <div className="test-results-container">
+      {/* Header Image */}
+      <div className="results-header-container">
+        <img src={HeaderImg} alt="Recommendation Header" className="results-header-img" />
+      </div>
+
       <h1 className="results-title">Your Personalized Recommendation</h1>
       <p className="results-subtitle">
-        Based on your personality test results, here are the tracks that match you best!
+        Based on your personality test results, here are the top three career paths that best align with you!
       </p>
 
       {/* === Dynamic Cards === */}
@@ -85,25 +84,37 @@ export default function TestResults() {
       ) : (
         <div className="careers-grid">
           {recommended.map((career) => (
-          <div key={career.id} className="career-card">
-            <div className="career-inner">
-              <div className="career-icon">
-                <img src={career.icon} alt={career.title} />
+            <div key={career.id} className="career-card">
+              <div className="career-inner">
+                <div className="career-icon">
+                  <img src={career.icon} alt={career.title} />
+                </div>
+
+                <div className="career-separator" />
+
+                <h3 className="career-title">{career.title}</h3>
+                <p className="career-description">{career.desc}</p>
               </div>
 
-              <div className="career-separator" />
-
-              <h3 className="career-title">{career.title}</h3>
-              <p className="career-description">{career.desc}</p>
+              <button className="view-details-btn" onClick={() => setSelectedCareer(career)}>
+                View Details
+              </button>
             </div>
-
-            <button className="view-details-btn" onClick={() => setSelectedCareer(career)}>
-              View Details
-            </button>
-          </div>
-        ))}
+          ))}
         </div>
       )}
+
+      {/* Retake Test Button */}
+      <div className="retake-container">
+        <button className="retake-btn" onClick={() => navigate('/assessment-start')}>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M23 4v6h-6"></path>
+            <path d="M1 20v-6h6"></path>
+            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+          </svg>
+          Retake the Test
+        </button>
+      </div>
 
       {/* POPUP */}
       {selectedCareer && (

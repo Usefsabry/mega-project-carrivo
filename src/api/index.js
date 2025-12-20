@@ -160,35 +160,24 @@ export async function submitTestApi(answers) {
 }
 
 // ================== CHAT ==================
+// ================== CHAT ==================
 export async function sendChatMessageApi(message, sessionId = null) {
   try {
-    console.log("💬 Sending chat message:", { message, sessionId });
-    
-    const requestBody = {
-      message,
-      session_id: sessionId,
-      language: "auto",
-    };
-    
-    console.log("📤 Request body:", requestBody);
-    
     const res = await fetch("/api/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(requestBody),
+      body: JSON.stringify({
+        message,
+        session_id: sessionId,
+        language: "auto",
+      }),
     });
 
-    console.log("📡 Response status:", res.status);
-
     if (!res.ok) {
-      const errorText = await res.text();
-      console.error("❌ Response error:", errorText);
-      throw new Error(`Chat API Failed: ${res.status} - ${errorText}`);
+      throw new Error(`Chat API Failed: ${res.status}`);
     }
 
-    const data = await res.json();
-    console.log("✅ Response data:", data);
-    return data;
+    return res.json();
 
   } catch (error) {
     console.error("❌ Chat Error:", error);

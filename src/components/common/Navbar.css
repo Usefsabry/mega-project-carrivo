@@ -12,11 +12,18 @@ body {
    NAVBAR MAIN STYLES
    ============================================ */
 
+body {
+  padding-top: 80px;
+  /* Compensate for fixed navbar height */
+}
+
 .crv-navbar {
   background: #ffffff;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.06);
-  position: sticky;
+  position: fixed;
+  /* Changed from sticky to fixed */
   top: 0;
+  left: 0;
   z-index: 1000;
   width: 100%;
   overflow-x: hidden;

@@ -21,11 +21,6 @@ body {
   /* Light cyan matching design */
 }
 
-@media (min-width: 1000px) {
-  .home-hero {
-    /* No visual change needed here if default is row */
-  }
-}
 
 /* Large screens: add gap to prevent text and image from being too far apart */
 @media (min-width: 1440px) {

@@ -55,7 +55,6 @@ module.exports = function(app) {
   // ChatBot Proxy
   app.post('/api/chat', express.json(), async (req, res) => {
     console.log('💬 Chat Request:', req.method, req.url);
-    console.log('💬 Request Body:', JSON.stringify(req.body, null, 2));
 
     const postData = JSON.stringify(req.body);
     
@@ -70,11 +69,8 @@ module.exports = function(app) {
       },
     };
 
-    console.log('🔗 Connecting to:', `https://${options.hostname}${options.path}`);
-
     const proxyReq = https.request(options, (proxyRes) => {
       console.log('💬 Chat Response Status:', proxyRes.statusCode);
-      console.log('💬 Response Headers:', JSON.stringify(proxyRes.headers, null, 2));
       
       res.setHeader('Access-Control-Allow-Origin', '*');
       res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -89,36 +85,14 @@ module.exports = function(app) {
       
       proxyRes.on('end', () => {
         console.log('💬 Chat Response Data:', data);
-        try {
-          // Try to parse as JSON to validate
-          const jsonData = JSON.parse(data);
-          console.log('✅ Valid JSON response:', jsonData);
-          res.send(data);
-        } catch (e) {
-          console.error('❌ Invalid JSON response:', data);
-          res.send(data);
-        }
+        res.send(data);
       });
     });
 
     proxyReq.on('error', (error) => {
       console.error('❌ Chat Proxy Error:', error);
-      console.error('❌ Error details:', {
-        message: error.message,
-        code: error.code,
-        stack: error.stack
-      });
       res.status(500).json({ error: 'Proxy error', details: error.message });
     });
-
-    proxyReq.on('timeout', () => {
-      console.error('⏱️ Request timeout');
-      proxyReq.destroy();
-      res.status(504).json({ error: 'Request timeout' });
-    });
-
-    // Set timeout to 30 seconds
-    proxyReq.setTimeout(30000);
 
     proxyReq.write(postData);
     proxyReq.end();
